@@ -1,0 +1,32 @@
+button.btn.btn-primary(type="button" ng-click="openProjectForm()") Create Project
+button.btn.btn-primary(type="button" ng-click="openTaskForm()") Create Task
+button.btn.btn-primary(type="button" ng-click="openWatcherForm()") Create Watcher
+hr
+
+//- form.form-horizontal(id="taskForm", ng-submit="createTask()" novalidate role="form")
+//- 	input.form-control(type="text", placeholder="Enter Task Name")
+//- 	input.form-control(type="text" placeholder="Select Project")
+
+
+div.well(ng-repeat="(projectId, project) in projects")
+	h5 {{ project.name }} 
+	ul
+		li(ng-repeat="task in tasks| orderByPriority|filter: projectId") 
+			
+			div.btn-group(dropdown)
+				button.btn.btn-xs.dropdown-toggle(type="button")
+					span.caret
+				ul.dropdown-menu(role="menu")
+					li: a(href="#" ng-click="editTask(task)") Edit
+					li: a(href="#" ng-click="deleteTask(task)") Delete
+					li: a(href="#" ng-click="completeTask(task)") Complete
+					li: a(href="#" ng-click="undoCompleteTask(task)") Undo Complete
+			|{{ task.name }}
+			|Finished: {{ task.finished }}
+
+h1 {{task}}
+
+
+	
+
+

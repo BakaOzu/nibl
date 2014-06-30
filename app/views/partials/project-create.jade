@@ -1,0 +1,11 @@
+.modal-header
+	h3.modal-title Create project
+.modal-body
+	form.form-horizontal(name='createProjectForm', ng-submit='createProject()', novalidate='novalidate')
+		.form-group
+			label.col-sm-3.control-label Enter project name:
+			.col-sm-9
+				input.form-control#inputProjectName(type='text', ng-model='project.name', required='required', placeholder='e.g. coding')
+		.modal-footer 
+			input.btn.btn-primary.pull-right(type='submit', value="submit")
+

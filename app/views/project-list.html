@@ -1,0 +1,23 @@
+
+<button type="button" ng-click="openProjectForm()" class="btn btn-primary">Create Project</button>
+<button type="button" ng-click="openTaskForm()" class="btn btn-primary">Create Task</button>
+<button type="button" ng-click="openWatcherForm()" class="btn btn-primary">Create Watcher</button>
+<hr/>
+<div ng-repeat="(projectId, project) in projects" class="well">
+  <h5>{{ project.name }} </h5>
+  <ul>
+    <li ng-repeat="task in tasks| orderByPriority|filter: projectId">
+      <div dropdown="dropdown" class="btn-group">
+        <button type="button" class="btn btn-xs dropdown-toggle"><span class="caret"></span></button>
+        <ul role="menu" class="dropdown-menu">
+          <li><a href="#" ng-click="editTask(task)">Edit</a></li>
+          <li><a href="#" ng-click="deleteTask(task)">Delete</a></li>
+          <li><a href="#" ng-click="completeTask(task)">Complete</a></li>
+          <li><a href="#" ng-click="undoCompleteTask(task)">Undo Complete</a></li>
+        </ul>
+      </div>{{ task.name }}
+      Finished: {{ task.finished }}
+    </li>
+  </ul>
+</div>
+<h1>{{task}}</h1>

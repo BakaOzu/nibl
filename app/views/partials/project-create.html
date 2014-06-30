@@ -1,0 +1,17 @@
+
+<div class="modal-header">
+  <h3 class="modal-title">Create project</h3>
+</div>
+<div class="modal-body">
+  <form name="createProjectForm" ng-submit="createProject()" novalidate="novalidate" class="form-horizontal">
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Enter project name:</label>
+      <div class="col-sm-9">
+        <input id="inputProjectName" type="text" ng-model="project.name" required="required" placeholder="e.g. coding" class="form-control"/>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <input type="submit" value="submit" class="btn btn-primary pull-right"/>
+    </div>
+  </form>
+</div>
