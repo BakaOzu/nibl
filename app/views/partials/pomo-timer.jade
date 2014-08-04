@@ -1,0 +1,12 @@
+.modal-header
+	h3.modal-title.text-center Pomodoro timer on task: [[ timer.task.name ]]
+.modal-body
+	.container
+		h1.text-center [[ timer.remainingTime|duration ]]
+		.center-block
+				button.btn.btn-lg.btn-success(type="button", ng-hide='timer.current' ng-click='timer.resume()' ) Resume
+				button.btn.btn-lg.btn-danger(type="button", ng-show='timer.current', ng-click="timer.stop()" ) Stop
+				button.btn.btn-lg.btn-default(type="button" ng-click="timer.reset()") Reset
+
+
+

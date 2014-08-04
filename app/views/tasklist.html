@@ -1,0 +1,28 @@
+
+<button disabled="disabled" type="button" ng-click="openProjectForm()" class="btn btn-primary">Create Project</button>
+<button disabled="disabled" type="button" ng-click="openWatcherForm()" class="btn btn-primary">Create Watcher</button>
+<button type="button" ng-click="openTaskForm()" class="btn btn-primary">Create Task</button>
+<hr/>
+<div class="col-lg-8 list-group">
+  <li ng-repeat="task in tasks| orderByPriority" ng-click="setCurrentTask(task)" class="list-group-item">
+    <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>
+    <div dropdown="dropdown" class="btn-group">
+      <button type="button" class="btn btn-xs dropdown-toggle"><span class="caret"></span></button>
+      <ul role="menu" class="dropdown-menu">
+        <li><a href="#" ng-click="openTaskForm(task)">Edit</a></li>
+        <li><a href="#" ng-click="deleteTask(task)">Delete</a></li>
+      </ul>
+    </div>[[ task.name ]]  <a href="#" ng-click="startPomodoro(task)" class="pull-right"><span class="glyphicon glyphicon-play-circle"></span></a>
+  </li>
+</div>
+<div ng-show="currentTask" class="col-lg-4">
+  <h5>[[ currentTask.name ]]</h5>
+  <p>Project: Nothing, cause need backend</p>
+  <p>Tags: Nothing, cause need backend </p>
+  <p>[[ currentTask.repeated ]]</p>
+  <p>#repeated days</p>
+  <p>Pomodoro: [[currentTask.pomodoro ]]</p>
+</div>
+<div ng-hide="currentTask" class="col-lg-4">
+  <p>some starting text here</p>
+</div>

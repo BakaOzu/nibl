@@ -1,0 +1,28 @@
+button.btn.btn-primary(disabled type="button" ng-click="openProjectForm()") Create Project
+button.btn.btn-primary(disabled type="button" ng-click="openWatcherForm()") Create Watcher
+button.btn.btn-primary(type="button" ng-click="openTaskForm()") Create Task
+hr
+.col-lg-8.list-group
+		li.list-group-item(ng-repeat="task in tasks| orderByPriority" ng-click="setCurrentTask(task)") 
+			input(type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)") 
+			
+			div.btn-group(dropdown)
+				button.btn.btn-xs.dropdown-toggle(type="button")
+					span.caret
+				ul.dropdown-menu(role="menu")
+					li: a(href="#" ng-click="openTaskForm(task)") Edit
+					li: a(href="#" ng-click="deleteTask(task)") Delete
+			| [[ task.name ]]  
+			a.pull-right(href="#" ng-click="startPomodoro(task)")
+				span.glyphicon.glyphicon-play-circle
+	.col-lg-4(ng-show="currentTask")
+			h5 [[ currentTask.name ]]
+			p Project: Nothing, cause need backend
+			p Tags: Nothing, cause need backend 
+			p [[ currentTask.repeated ]]
+			p #repeated days
+			p Pomodoro: [[currentTask.pomodoro ]]
+
+	.col-lg-4(ng-hide="currentTask")
+		p some starting text here
+
