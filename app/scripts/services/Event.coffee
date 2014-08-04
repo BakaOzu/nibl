@@ -1,5 +1,5 @@
 angular.module('niblApp').factory 'Event', ($firebase, FIREBASE_URL) ->
-	ref = new Firebase(FIREBASE_URL + 'Tasks')
+	ref = new Firebase(FIREBASE_URL + 'events')
 	events = $firebase(ref)
 
 	Event = 
@@ -15,5 +15,3 @@ angular.module('niblApp').factory 'Event', ($firebase, FIREBASE_URL) ->
 
 		delete: (eventId) ->
 			events.$remove(eventId)
-
-	

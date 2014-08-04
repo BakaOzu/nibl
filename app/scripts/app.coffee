@@ -10,12 +10,17 @@ angular.module('niblApp', [
     'firebase',
     'ui.bootstrap'
   ])
-  .constant('FIREBASE_URL', 'https://burning-fire-9586.firebaseio.com/')
+  .config ($interpolateProvider) -> 
+      $interpolateProvider.startSymbol '[['
+      $interpolateProvider.endSymbol ']]'
+
+  .run ($http, $cookies) ->
+    $http.defaults.headers.common['X-CSRFToken'] = $cookies['csrftoken'] # don't fully get it
   .config ($routeProvider) ->
     $routeProvider
       .when '/',
-        templateUrl: 'views/project-list.html'
-        controller: 'projectListCtrl'
+        templateUrl: 'views/tasklist.html'
+        controller: 'tasklistCtrl'
       .when '/events',
         templateUrl: 'views/events.html'
         controller: 'eventListCtrl'
@@ -24,6 +29,7 @@ angular.module('niblApp', [
       #   $controller: 'agendaCtrl'
       .otherwise
         redirectTo: '/'
+  .constant('FIREBASE_URL', 'https://burning-fire-9586.firebaseio.com/')
 
 
 

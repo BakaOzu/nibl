@@ -2,36 +2,40 @@ angular.module('niblApp').factory 'Task', ($firebase, FIREBASE_URL, Event) ->
 	ref = new Firebase(FIREBASE_URL + 'tasks')
 	tasks = $firebase(ref)
 
+	polish = (task) ->
+		task.projectId = task.project.$id
+		delete task.project  
+		delete task.daysAvailable if task.availabilityType is 'once'		
+		return task
+
+
+
 	Task = 
 		all: tasks
 		create: (task) ->
 			task.creationDate = Date.now()
-			task.finished = false
-			task.project = task.project.$id  # not good
-			tasks.$add(task)
+			task.completed = false
+			tasks.$add(polish(task))
 
 		read: (taskId) ->
 			tasks.$child taskId
 
-		update: (task, taskId) ->
-			tasks.$child(taskId).$set(task)
+		edit: (task) ->
+			console.log task.project
+			tasks.$child(task.$id).$set(polish(task))
 
 		delete: (taskId) ->
 			tasks.$remove(taskId)
 
-		complete: (taskId) ->
-			event = 
-				task: taskId
-				creationDate: Date.now()
+		complete: (taskId, counters) ->
+			# event = 
+			# 	task: taskId
+			# 	creationDate: Date.now()
+			# event.counters = counters if counters
 
-			Event.create(event).then ->
-				tasks.$child(taskId).$update({finished: true})
+
+			# Event.create(event).then ->
+			tasks.$child(taskId).$update({completed: true})
 
 		undoComplete: (taskId) -> # don't delete last event
-			tasks.$child(taskId).$update({finished:false})
-
-
-
-	
-
-
+			tasks.$child(taskId).$update({completed:false})

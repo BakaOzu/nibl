@@ -1,1 +1,4 @@
-{{ events }}
+ul
+	li(ng-repeat="(id, event) in events") [[ event.creationDate| date ]]  [[ getTask(event.task) ]] [[ event ]]
+				ul
+					li(ng-repeat="counter in event.counters") [[counter}}
