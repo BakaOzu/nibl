@@ -1,0 +1,14 @@
+
+<div class="modal-header">
+  <h3 class="modal-title text-center">Pomodoro timer on task: [[ timer.task.name ]]</h3>
+</div>
+<div class="modal-body">
+  <div class="container">
+    <h1 id="timer-numbers" class="text-center">[[ timer.remainingTime|duration ]]</h1>
+    <div class="center-block">
+      <button type="button" ng-hide="timer.current" ng-click="timer.resume()" class="btn btn-lg btn-success">Resume</button>
+      <button type="button" ng-show="timer.current" ng-click="timer.stop()" class="btn btn-lg btn-danger">Stop</button>
+      <button type="button" ng-click="timer.reset()" class="btn btn-lg btn-default">Reset</button>
+    </div>
+  </div>
+</div>

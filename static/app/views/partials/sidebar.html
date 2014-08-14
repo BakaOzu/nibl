@@ -1,0 +1,23 @@
+
+<div ng-show="sidebarMode === 'initial'">
+  <p>Прошла неделя, не хотите посмотреть <a class="cursor-pointer">сводку?</a></p>
+  <p>Задача <a class="cursor-pointer">Сжечь еретика </a>Пропущена. </p>
+</div>
+<div ng-show="sidebarMode === 'taskDetail'">
+  <h5 class="sidebar-heading">[[ currentTask.name ]]		<a ng-click="edit(currentTask)" class="cursor-pointer pull-right"><i class="fa fa-edit"></i></a></h5>
+  <p ng-repeat="tag in currentTask.tags">[[ tag ]]</p>
+  <p>Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]</p>
+  <button type="button" ng-click="currentTask.addPomodoro()" class="btn button-info btn-sm">Add Pomodoro Manually</button>
+</div>
+<form ng-submit="saveChanges()" ng-show="sidebarMode === 'taskEdit'" class="form-horizontal">
+  <label class="control-label col-lg-4">Название:</label>
+  <div class="col-lg-8"></div>
+  <div class="col-lg-8">
+    <input ng-model="editedTask.type" class="form-control"/>
+  </div>
+  <label class="control-label col-lg-4">Теги:</label>
+  <div class="col-lg-8">
+    <tags-input ng-model="editedTask.tags">
+    </tags-input>
+  </div>
+</form>

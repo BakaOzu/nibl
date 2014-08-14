@@ -1,0 +1,40 @@
+
+<button disabled="disabled" type="button" ng-click="openProjectForm()" class="btn btn-primary">Create Project</button>
+<button disabled="disabled" type="button" ng-click="openWatcherForm()" class="btn btn-primary">Create Watcher</button>
+<button type="button" ng-click="openTaskForm()" class="btn btn-primary">Create Task</button>
+<hr/>
+<form style="padding-bottom:5px;">
+  <input ng-model="editedTask.name" placeholder="введите новую задачу" class="form-control"/>
+</form>
+<div class="col-lg-4">
+  <p>Сортировать по: <a href="#">Приоритету</a>, <a href="#">Срочности</a></p>
+</div>
+<div dropdown="dropdown" class="col-lg-4 btn-group">
+  <button type="button" class="btn btn-sm btn-primary">[[ interval ]]	</button>
+  <button type="button" class="btn btn-sm btn-primary dropdown-toggle"><span class="caret"></span></button>
+  <ul role="menu" class="dropdown-menu">
+    <li><a ng-click="setInterval('Все время')" class="cursor-pointer">Все время</a></li>
+    <li><a ng-click="setInterval('Неделя')" class="cursor-pointer">Неделя</a></li>
+    <li><a ng-click="setInterval('Три дня')" class="cursor-pointer">Три дня</a></li>
+    <li><a ng-click="setInterval('День')" class="cursor-pointer">День</a></li>
+  </ul>
+</div>
+<div class="col-lg-4">
+  <input type="checkbox" ng-model="editedTask"/>
+</div>
+<hr/>
+<div class="col-lg-8 list-group">
+  <li ng-repeat="task in tasks" ng-click="setCurrentTask(task)" ng-class="{current:isCurrent(task)}" class="list-group-item">
+    <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>
+    <div dropdown="dropdown" class="btn-group">
+      <button type="button" class="btn btn-xs dropdown-toggle"><span class="caret"></span></button>
+      <ul role="menu" class="dropdown-menu">
+        <li><a href="#" ng-click="openTaskForm(task)">Edit</a></li>
+        <li><a href="#" ng-click="task.remove()">Delete</a></li>
+      </ul>
+    </div>[[ task.name ]]  <a href="#" ng-click="startPomodoro(task)" class="pull-right"><span class="glyphicon glyphicon-play-circle"></span></a>
+  </li>
+</div>
+<div class="col-lg-4 well">
+  <sidebar></sidebar>
+</div>

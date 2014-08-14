@@ -4,96 +4,16 @@
 		"selected_items":
 		[
 			[
-				"ou",
-				"outline-color"
+				"class",
+				"class	keyword"
 			],
 			[
-				"p",
-				"pla	placeholder=\"\""
+				"m",
+				"models	module"
 			],
 			[
-				"in",
-				"inp	input()"
-			],
-			[
-				"btn-",
-				"btn-group"
-			],
-			[
-				"col",
-				"col-lg-4"
-			],
-			[
-				"edi",
-				"editedTask"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
-				"Da",
-				"DateField	class"
-			],
-			[
-				"ava",
-				"availabilityType"
-			],
-			[
-				"cu",
-				"currentTask"
-			],
-			[
-				"Pro",
-				"ProjectDetail	class"
-			],
-			[
-				"re",
-				"return"
-			],
-			[
-				"mar",
-				"margin-left"
-			],
-			[
-				"back",
-				"background-color"
-			],
-			[
-				"margin-",
-				"margin-bottom"
-			],
-			[
-				"btn",
-				"btn-primary"
-			],
-			[
-				"task",
-				"task"
-			],
-			[
-				"ta",
-				"tasks"
-			],
-			[
-				"P",
-				"ProjectList	class"
-			],
-			[
-				"Task",
-				"TaskSerializer	class"
-			],
-			[
-				"ser",
-				"serializer_class"
-			],
-			[
-				"tas",
-				"taskService"
-			],
-			[
-				"tasks",
-				"tasks"
+				"a",
+				"auth	module"
 			],
 			[
 				"co",
@@ -102,6 +22,10 @@
 			[
 				"De",
 				"DEBUG	statement"
+			],
+			[
+				"in",
+				"include	function"
 			],
 			[
 				"Man",
@@ -116,15 +40,15 @@
 				"availability_types	statement"
 			],
 			[
-				"m",
-				"min	function"
-			],
-			[
 				"Model",
 				"Model	class"
 			],
 			[
 				"po",
+				"pomodoroBlock"
+			],
+			[
+				"p",
 				"pomodoroBlock"
 			],
 			[
@@ -158,6 +82,14 @@
 			[
 				"b",
 				"but	button()"
+			],
+			[
+				"btn",
+				"btn-danger"
+			],
+			[
+				"re",
+				"remainingTime"
 			],
 			[
 				"sec",
@@ -196,8 +128,16 @@
 				"mockModal"
 			],
 			[
+				"Task",
+				"tasklistCtrl"
+			],
+			[
 				"mock",
 				"mockTask"
+			],
+			[
+				"task",
+				"task"
 			],
 			[
 				"pro",
@@ -240,8 +180,16 @@
 				"value"
 			],
 			[
+				"col",
+				"col-sm-3"
+			],
+			[
 				"ope",
 				"openTaskForm"
+			],
+			[
+				"ta",
+				"taskFormUtilities"
 			],
 			[
 				"even",
@@ -254,6 +202,10 @@
 			[
 				"moda",
 				"modalInstance"
+			],
+			[
+				"tas",
+				"taskId"
 			],
 			[
 				"ng-cl",
@@ -336,12 +288,12 @@
 				"placeholder"
 			],
 			[
-				"a",
-				"availabilityType"
-			],
-			[
 				"FO",
 				"form-group"
+			],
+			[
+				"Pro",
+				"projectData"
 			],
 			[
 				"cont",
@@ -456,72 +408,36 @@
 	"buffers":
 	[
 		{
-			"file": "tasks/static/app/views/partials/sidebar.jade",
+			"file": "/C/workspace/tutorial/tutorial/settings.py",
 			"settings":
 			{
-				"buffer_size": 951,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tasks/static/app/scripts/controllers/sidebarCtrl.coffee",
-			"settings":
-			{
-				"buffer_size": 120,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tasks/static/app/scripts/services/tagService.coffee",
-			"settings":
-			{
-				"buffer_size": 103,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tasks/static/bower_components/ng-tags-input/ng-tags-input.css",
-			"settings":
-			{
-				"buffer_size": 3359,
+				"buffer_size": 2035,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "tasks/templates/home.html",
+			"file": "/C/workspace/tutorial/quickstart/serializers.py",
 			"settings":
 			{
-				"buffer_size": 4542,
+				"buffer_size": 118,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "tasks/static/app/scripts/controllers/tasklistCtrl.coffee",
+			"file": "/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 1187,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "tasks/static/app/scripts/services/taskService.coffee",
-			"settings":
-			{
-				"buffer_size": 1646,
-				"line_ending": "Windows"
+				"buffer_size": 11551,
+				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 242.0,
 		"selected_items":
 		[
-			[
-				"cop",
-				"File: Copy Path From Project"
-			],
 			[
 				"set scop",
 				"Set Syntax: CoffeeScript"
@@ -877,88 +793,6 @@
 	},
 	"file_history":
 	[
-		"/C/workspace/django_nibl/tasks/templates/tasklist.html",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/tagService.js",
-		"/C/workspace/django_nibl/tasks/tests.py",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/app.coffee",
-		"/C/workspace/django_nibl/tasks/migrations/0005_auto__add_field_task_owner.py",
-		"/C/workspace/django_nibl/tasks/static/bower.json",
-		"/C/workspace/django_nibl/env/Lib/site-packages/rest_framework/tests/test_authentication.py",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/sidebar.html",
-		"/C/workspace/django_nibl/env/Include/cStringIO.h",
-		"/C/workspace/django_nibl/nibl/settings.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/setuptools/svn_utils.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/setuptools/command/upload_docs.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/django/utils/decorators.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/setuptools/command/easy_install.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/django/contrib/auth/locale/de/LC_MESSAGES/django.mo",
-		"/C/workspace/django_nibl/tasks/static/app/styles/main.css",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/pomo-timer.jade",
-		"/C/workspace/django_nibl/tasks/static/app/views/tasklist.html",
-		"/C/workspace/django_nibl/tasks/templates/home.html",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/controllers/tasklistCtrl.coffee",
-		"/C/workspace/django_nibl/tasks/urls.py",
-		"/C/workspace/django_nibl/tasks/views.py",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/sidebar.jade",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/controllers/sidebarCtrl.coffee",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/controllers/taskFormCtrl.coffee",
-		"/C/workspace/django_nibl/tasks/static/app/views/tasklist.jade",
-		"/C/workspace/django_nibl/tasks/static/bower_components/jquery/src/css/addGetHookIf.js",
-		"/C/workspace/django_nibl/env/Lib/site-packages/django/conf/locale/hi/__init__.py",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/project-create.html",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/project-create.jade",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/watcher-create.html",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/watcher-create.jade",
-		"/C/workspace/django_nibl/tasks/serializers.py",
-		"/C/workspace/django_nibl/tasks/models.py",
-		"/C/workspace/django_nibl/env/Lib/encodings/mac_iceland.py",
-		"/C/workspace/django_nibl/tasks/static/bower_components/bootstrap/less/component-animations.less",
-		"/C/workspace/django_nibl/env/Lib/encodings/mac_arabic.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/django/core/mail/utils.py",
-		"/C/workspace/django_nibl/tasks/static/app/views/partials/task-form.jade",
-		"/C/Python27/lib/site-packages/django/shortcuts/__init__.py",
-		"/C/Python27/lib/site-packages/django/http/response.py",
-		"/C/workspace/django_nibl/tasks/static/bower_components/moment/lang/ms-my.js",
-		"/C/workspace/django_nibl/db.sqlite3",
-		"/C/workspace/django_nibl/env/Scripts/django-admin.py",
-		"/C/workspace/django_nibl/env/Include/datetime.h",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/projectService.coffee",
-		"/C/Python27/lib/site-packages/django/db/models/fields/__init__.py",
-		"/C/workspace/django_nibl/manage.py",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/app.js",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/Project.js",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/Project.coffee",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/taskService.coffee",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/taskService.js",
-		"/C/workspace/django_nibl/tasks/static/bower_components/jquery/src/var/hasOwn.js",
-		"/C/workspace/django_nibl/env/Include/genobject.h",
-		"/C/workspace/django_nibl/env/Include/import.h",
-		"/C/workspace/django_nibl/env/Lib/site-packages/django/contrib/admin/templates/admin/index.html",
-		"/C/workspace/django_nibl/env/Lib/site-packages/pip/index.py",
-		"/C/workspace/django_nibl/env/Include/intobject.h",
-		"/C/workspace/django_nibl/tasks/static/app/index.html",
-		"/C/workspace/django_nibl/tasks/permissions.py",
-		"/C/workspace/django_nibl/env/Lib/site-packages/django/contrib/auth/tests/templates/context_processors/auth_attrs_perms.html",
-		"/C/workspace/django_nibl/env/Scripts/activate",
-		"/C/workspace/django_nibl/tasks/static/bower_components/angular-animate/angular-animate.js",
-		"/C/workspace/nibl/.bowerrc",
-		"/C/workspace/nibl/bower.json",
-		"/C/workspace/nibl/.travis.yml",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/Task.coffee",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/Task.js",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/controllers/eventListCtrl.coffee",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/controllers/eventListCtrl.js",
-		"/C/workspace/django_nibl/env/Lib/encodings/string_escape.py",
-		"/C/workspace/django_nibl/tasks/Gruntfile.js",
-		"/C/workspace/django_nibl/tasks/gruntserver.py",
-		"/C/workspace/django_nibl/tasks/static/app/scripts/services/Event.coffee",
-		"/C/workspace/django_nibl/nibl/urls.py",
-		"/C/Users/Ozu/Downloads/cat.jpg",
-		"/C/workspace/django_nibl/tasks/templates",
-		"/C/workspace/django_nibl/nibl/views.py",
-		"/C/workspace/django_nibl/nibl/nibl/settings.py",
-		"/C/workspace/django_nibl/nibl/tasks/models.py",
-		"/C/workspace/django_nibl/nibl/tasks/urls.py",
 		"/C/workspace/django_nibl/nibl/nibl/urls.py",
 		"/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
@@ -1004,7 +838,89 @@
 		"/C/workspace/nibl/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower/node_modules/inquirer/node_modules/cli-color/node_modules/es5-ext/lib/Date/prototype/floor-month.js",
 		"/C/workspace/nibl/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower/node_modules/inquirer/node_modules/cli-color/node_modules/es5-ext/test/Date/prototype/floor-month.js",
 		"/C/workspace/nibl/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/lib/phantom/examples/modernizr.js",
-		"/C/workspace/nibl/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/lib/phantom/examples/module.coffee"
+		"/C/workspace/nibl/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/lib/phantom/examples/module.coffee",
+		"/C/workspace/nibl/node_modules/karma-phantomjs-launcher/node_modules/phantomjs/lib/phantom/examples/module.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/zlib-browserify/node_modules/tape/test/plan_optional.js",
+		"/C/workspace/nibl/node_modules/grunt-google-cdn/node_modules/bower/node_modules/mout/number/toInt.js",
+		"/C/workspace/nibl/javascript_the_good_parts.coffee",
+		"/C/workspace/nibl/.tmp/scripts/services/Task.js",
+		"/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/workspace/nibl/test/karma.conf.js",
+		"/C/workspace/nibl/node_modules/jshint-stylish/index.js",
+		"/C/workspace/nibl/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/active-x-obfuscator/.package.json.un~",
+		"/C/workspace/nibl/test/spec/controllers/tasksCtrl.coffee",
+		"/C/workspace/nibl/test/spec/services/Task.coffee",
+		"/C/workspace/nibl/.tmp/spec/services/Task.js",
+		"/C/workspace/nibl/bower_components/underscore/underscore.js",
+		"/C/workspace/nibl/bower_components/angular-bootstrap/ui-bootstrap.js",
+		"/C/workspace/nibl/node_modules/sinon/lib/sinon/util/fake_xml_http_request.js",
+		"/C/workspace/nibl/app/scripts/controllers/tasksCtrl.coffee",
+		"/C/workspace/nibl/.tmp/scripts/controllers/tasksCtrl.js",
+		"/C/workspace/nibl/bower_components/es5-shim/CHANGES",
+		"/C/workspace/nibl/node_modules/grunt-contrib-clean/docs/clean-options.md",
+		"/C/workspace/nibl/bower_components/es5-shim/CONTRIBUTORS.md",
+		"/C/workspace/nibl/bower_components/angularfire/lib/omnibinder.js",
+		"/C/workspace/nibl/bower_components/angularfire/lib/omnibinder-protocol.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-connect/node_modules/open/lib/open.js",
+		"/C/workspace/nibl/.tmp/spec/controllers/tasklistCtrl.js",
+		"/C/workspace/nibl/test/karma.conf.coffee",
+		"/C/workspace/nibl/node_modules/karma/node_modules/glob/node_modules/inherits/inherits_browser.js",
+		"/C/workspace/nibl/node_modules/karma/node_modules/socket.io/node_modules/redis/examples/backpressure_drain.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/imagemin-gifsicle/node_modules/gifsicle/node_modules/bin-wrapper/node_modules/mout/object/deepEquals.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/imagemin-gifsicle/node_modules/gifsicle/node_modules/bin-wrapper/node_modules/download/node_modules/decompress/node_modules/.bin/extname",
+		"/C/workspace/nibl/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/image-type/node_modules/is-bmp/index.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/tempfile/node_modules/uuid/benchmark/benchmark-native.c",
+		"/C/workspace/nibl/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/imagemin-gifsicle/node_modules/gifsicle/node_modules/bin-wrapper/node_modules/.bin/download",
+		"/C/workspace/nibl/node_modules/grunt-contrib-imagemin/node_modules/imagemin/node_modules/imagemin-gifsicle/node_modules/gifsicle/node_modules/bin-wrapper/node_modules/mout/date.js",
+		"/C/workspace/nibl/node_modules/grunt-karma/tasks/grunt-karma.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-watch/node_modules/tiny-lr-fork/tasks/tiny-lr.mk",
+		"/C/workspace/nibl/node_modules/load-grunt-tasks/node_modules/findup-sync/node_modules/glob/node_modules/inherits/package.json",
+		"/C/workspace/nibl/app/views/partials/task-form.jade",
+		"/C/workspace/nibl/Gruntfile.js",
+		"/C/workspace/nibl/bower_components/angularfire/angularfire.js",
+		"/C/workspace/nibl/bower_components/sinon-1.10.2.js",
+		"/C/workspace/nibl/test/spec/controllers/taskFormCtrl.coffee",
+		"/C/workspace/nibl/app/scripts/controllers/taskFormCtrl.coffee",
+		"/C/workspace/nibl/.tmp/scripts/controllers/taskFormCtrl.js",
+		"/C/workspace/nibl/.tmp/scripts/services/Task.js.map",
+		"/C/workspace/nibl/node_modules/grunt-google-cdn/node_modules/bower/node_modules/request/node_modules/form-data/node_modules/combined-stream/test/integration/test-delayed-streams-and-buffers-and-strings.js",
+		"/C/workspace/nibl/app/views/partials/task-create.html",
+		"/C/workspace/nibl/app/scripts/controllers/refactor/tasksCtrl.coffee",
+		"/C/workspace/nibl/app/scripts/controllers/refactor/tasklistCtrl.coffee",
+		"/C/workspace/nibl/app/scripts/controllers/refactor/taskFormCtrl.coffee",
+		"/C/workspace/nibl/app/views/events.jade",
+		"/C/workspace/nibl/app/views/partials/task-create.jade",
+		"/C/workspace/nibl/app/scripts/controllers/eventListCtrl.coffee",
+		"/C/workspace/nibl/app/scripts/services/Project.coffee",
+		"/C/workspace/nibl/app/views/partials/watcher-create.jade",
+		"/C/workspace/nibl/.tmp/scripts/controllers/projectListCtrl.js",
+		"/C/workspace/nibl/app/views/partials/project-create.html",
+		"/C/workspace/nibl/.tmp/scripts/controllers/eventListCtrl.js",
+		"/C/workspace/nibl/app/scripts/services/Event.coffee",
+		"/C/workspace/nibl/node_modules/grunt-google-cdn/node_modules/bower/node_modules/inquirer/node_modules/cli-color/node_modules/es5-ext/lib/Object/valid-value.js",
+		"/C/workspace/nibl/node_modules/grunt-usemin/lib/revvedfinder.js",
+		"/C/workspace/nibl/test/spec/controllers/main.coffee",
+		"/C/workspace/nibl/test/spec/controllers/projectList.coffee",
+		"/C/workspace/nibl/app/views/events.html",
+		"/C/workspace/nibl/bower_components/bootstrap/LICENSE",
+		"/C/workspace/nibl/node_modules/grunt-contrib-connect/tasks/certs/ca.crt",
+		"/C/workspace/nibl/bower_components/angular-scenario/jstd-scenario-adapter-config.js",
+		"/C/workspace/nibl/node_modules/grunt-contrib-htmlmin/node_modules/html-minifier/sample-cli-config-file.conf",
+		"/C/workspace/nibl/node_modules/grunt-concurrent/tasks/concurrent.js",
+		"/C/Users/Ozu/Downloads/burning-fire-9586-export.json",
+		"/C/workspace/nibl/.tmp/scripts/services/Event.js",
+		"/C/workspace/nibl/.tmp/scripts/services/Event.js.map",
+		"/C/workspace/nibl/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js/test/unit/compress/expected/empty-blocks.js",
+		"/C/workspace/nibl/node_modules/grunt-google-cdn/node_modules/bower/node_modules/archy/examples/beep.js",
+		"/C/workspace/nibl/README.md",
+		"/C/workspace/nibl/junk/projectlistCtrl.coffee",
+		"/C/workspace/nibl/app/scripts/controllers/projectCreateCtrl.coffee",
+		"/C/workspace/nibl/app/scripts/controllers/taskCreateCtrl.coffee",
+		"/C/workspace/nibl/js.js",
+		"/C/workspace/nibl/.tmp/scripts/controllers/projectCreateCtrl.js",
+		"/C/workspace/nibl/.tmp/scripts/services/Project.js",
+		"/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/SublimeOnSaveBuild/SublimeOnSaveBuild.sublime-settings",
+		"/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/User/SublimeOnSaveBuild.sublime-settings"
 	],
 	"find":
 	{
@@ -1015,7 +931,6 @@
 		"height": 90.0,
 		"where_history":
 		[
-			"C:\\workspace\\django_nibl\\tasks\\static\\app",
 			"C:\\workspace\\nibl\\app",
 			"C:\\workspace\\nibl-raw\\app"
 		]
@@ -1025,79 +940,6 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"()",
-			"project",
-			"555555",
-			"55555",
-			"color",
-			"tags-input",
-			"border",
-			"restangular",
-			"PomodoroIconify",
-			"filters",
-			"controllers",
-			"project",
-			"Project",
-			"timer",
-			"li: a",
-			"a",
-			" ",
-			"md",
-			"Repeated",
-			"primary",
-			"placeholder",
-			"href=\"#\"",
-			"a(",
-			"(",
-			"Неделя",
-			"Все",
-			"Неделя",
-			"Week",
-			"Three Days",
-			"Three",
-			"Day",
-			"ng-model=\"interval\"",
-			"Edit",
-			"Delete",
-			"Сортировать",
-			"link",
-			"hide",
-			"Name",
-			"name",
-			"Name",
-			"Project",
-			" \n",
-			"btn",
-			"Pomodoro",
-			"Habit",
-			"Pomodoro",
-			"Habit",
-			"placeholder",
-			"temporary",
-			"Project",
-			"project",
-			"projects",
-			"Project",
-			"taskService",
-			"tasks",
-			"fire",
-			"butt",
-			"one",
-			"']\n",
-			"']",
-			"]",
-			"IsOwnerOrReadOnly",
-			"owner",
-			"all",
-			"Task",
-			"taskService",
-			"function",
-			"views",
-			"scripts",
-			"=\"",
-			"\">",
-			"src",
-			"view",
 			"True",
 			"Always",
 			"a",
@@ -1152,7 +994,80 @@
 			"name",
 			"show",
 			"pomodoro",
-			"taskFormCtrl"
+			"taskFormCtrl",
+			"else",
+			"currentTimer",
+			"that",
+			"start",
+			"minutes",
+			"currentTimer",
+			"isCountdown",
+			"addPomodoro",
+			"phrases",
+			"Cleaning",
+			"toBe",
+			"toEqual",
+			"toBeUndined",
+			"descrive",
+			"minutes",
+			"0",
+			"seconds",
+			"minutes",
+			"dd",
+			"currentTimer",
+			"here",
+			"stopped",
+			"here",
+			"this",
+			"that",
+			"this",
+			"controllers",
+			"taskFormCtrl",
+			"remainingTime",
+			"current",
+			"currentTimer",
+			"true",
+			": ",
+			"()",
+			"remaining",
+			"timerData",
+			"null",
+			"refreshForm",
+			"current",
+			"none",
+			"Task",
+			"null",
+			"seconds",
+			"minutes",
+			"seconds",
+			"decrementRemaingTime",
+			"taskFormCtrl",
+			"interval",
+			"tasklistCtrl",
+			"first",
+			"inc",
+			"func",
+			"stopped",
+			"running",
+			"stopped",
+			"running",
+			"stopped",
+			"show",
+			"Reset",
+			"Start",
+			"success",
+			"button",
+			"controllerConstructor",
+			"mockModal",
+			"[]",
+			"check",
+			"complete",
+			"stub",
+			"firebase",
+			"mockTask",
+			"called",
+			"\",\n",
+			"karma"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1170,30 +1085,60 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "tasks/static/app/views/partials/sidebar.jade",
+					"file": "/C/workspace/tutorial/tutorial/settings.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 951,
+						"buffer_size": 2035,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								947,
-								947
+								1728,
+								1728
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/workspace/tutorial/quickstart/serializers.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 118,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								89,
+								89
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1203,176 +1148,33 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "tasks/static/app/scripts/controllers/sidebarCtrl.coffee",
+					"buffer": 2,
+					"file": "/C/Users/Ozu/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 120,
+						"buffer_size": 11551,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								62,
-								62
+								1216,
+								1247
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
+							"syntax": "Packages/Better JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "tasks/static/app/scripts/services/tagService.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 103,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								52,
-								52
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "tasks/static/bower_components/ng-tags-input/ng-tags-input.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3359,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								385,
-								385
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "tasks/templates/home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4542,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3646,
-								3646
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 714.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "tasks/static/app/scripts/controllers/tasklistCtrl.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1187,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								213,
-								213
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "tasks/static/app/scripts/services/taskService.coffee",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1646,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1421,7 +1223,7 @@
 	{
 		"height": 100.0
 	},
-	"project": "django-nibl.sublime-project",
+	"project": "rest.sublime-project",
 	"replace":
 	{
 		"height": 40.0
@@ -1433,72 +1235,16 @@
 		"selected_items":
 		[
 			[
-				"tasklisco",
-				"tasks\\static\\app\\scripts\\controllers\\tasklistCtrl.coffee"
-			],
-			[
-				"ho",
-				"tasks\\templates\\home.html"
-			],
-			[
-				"sidec",
-				"tasks\\static\\app\\scripts\\controllers\\sidebarCtrl.coffee"
-			],
-			[
-				"app",
-				"tasks\\static\\app\\scripts\\app.coffee"
-			],
-			[
-				"tasct",
-				"tasks\\static\\app\\scripts\\controllers\\tasklistCtrl.coffee"
-			],
-			[
-				"side",
-				"tasks\\static\\app\\views\\partials\\sidebar.jade"
-			],
-			[
-				"home",
-				"tasks\\templates\\home.html"
-			],
-			[
-				"main",
-				"tasks\\static\\app\\styles\\main.css"
-			],
-			[
-				"main.c",
-				"tasks\\static\\app\\styles\\main.css"
-			],
-			[
-				"mo",
-				"tasks\\models.py"
-			],
-			[
-				"mm",
-				"tasks\\static\\bower_components\\moment\\lang\\ms-my.js"
-			],
-			[
-				"mode",
-				"tasks\\models.py"
-			],
-			[
-				"index.h",
-				"env\\Lib\\site-packages\\django\\contrib\\admin\\templates\\admin\\index.html"
-			],
-			[
-				"task.co",
-				"tasks\\static\\app\\scripts\\services\\Task.coffee"
-			],
-			[
-				"sett",
-				"nibl\\settings.py"
-			],
-			[
 				"ind",
 				"app\\index.html"
 			],
 			[
 				"taskli",
 				"app\\scripts\\controllers\\tasklistCtrl.coffee"
+			],
+			[
+				"app",
+				"app\\scripts\\app.coffee"
 			],
 			[
 				"pomi",
@@ -1515,6 +1261,10 @@
 			[
 				"pomoti",
 				"test\\spec\\controllers\\pomoTimerCtrl.coffee"
+			],
+			[
+				"index.h",
+				"app\\index.html"
 			],
 			[
 				"task",

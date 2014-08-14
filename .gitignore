@@ -1,5 +1,7 @@
-node_modules
-dist
-.tmp
-.sass-cache
-bower_components
+*.pyc
+env
+db.sqlite3
+nibl.sublime-project
+nibl.sublime-workspace
+static/bower_components
+

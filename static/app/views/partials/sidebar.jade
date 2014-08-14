@@ -1,0 +1,32 @@
+div(ng-show="sidebarMode === 'initial'")
+	p Прошла неделя, не хотите посмотреть 
+		a.cursor-pointer сводку?
+	p Задача 
+		a.cursor-pointer Сжечь еретика 
+		| Пропущена. 
+
+
+div(ng-show="sidebarMode === 'taskDetail'")
+	h5.sidebar-heading [[ currentTask.name ]]		
+		a.cursor-pointer(ng-click="edit(currentTask)").pull-right: i.fa.fa-edit
+	p(ng-repeat="tag in currentTask.tags") [[ tag ]]
+	p Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]
+	button.btn.button-info.btn-sm(type="button" ng-click="currentTask.addPomodoro()") Add Pomodoro Manually
+
+	//- a.cursor-pointer(ng-click="edit(currentTask)").pull-right: i.fa.fa-edit
+
+
+form.form-horizontal(ng-submit="saveChanges()" ng-show="sidebarMode === 'taskEdit'")
+	label.control-label.col-lg-4 Название:
+	.col-lg-8
+	//- 	input.form-control(ng-model="editedTask.name")
+	//- label.control-label.col-lg-4 #Повторять:
+	.col-lg-8
+		input.form-control(ng-model="editedTask.type")
+	label.control-label.col-lg-4 Теги:
+	.col-lg-8
+		tags-input(ng-model="editedTask.tags")
+			//- auto-complete(source="loadTags()")
+
+
+

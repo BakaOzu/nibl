@@ -1,0 +1,61 @@
+
+<div class="modal-header">
+  <h3 class="modal-title">[[ formName ]]</h3>
+  <p>[[ task ]]</p>
+  <div class="modal-body">
+    <form name="createTaskForm" ng-submit="submitTask()" novalidate="novalidate" role="form" class="form-horizontal">
+      <div class="form-group">
+        <label for="inputTaskName" class="col-sm-4 control-label">Choose name:</label>
+        <div class="col-sm-8">
+          <input id="inputTaskName" type="text" ng-model="task.name" required="required" placeholder="e.g. validation for that form" class="form-control"/>
+        </div>
+        <label for="inputTaskProject" class="col-sm-4 control-label">Choose project:</label>
+        <div class="col-sm-8">
+          <select id="inputTaskProject" ng-model="task.project" ng-options="project.name for project in projects" class="form-control"></select>
+        </div>
+        <label for="inputAvailability" class="col-sm-4 control-label">Choose availability :</label>
+        <div class="col-sm-8">
+          <select id="inputAvailability" ng-model="task.availabilityType" ng-change="setDaysAvailable()" class="form-control">
+            <option value="anytime">Anytime</option>
+            <option value="repeated">Repeated</option>
+            <option value="once">Only once</option>
+          </select>
+        </div>
+        <div ng-show="task.availabilityType === 'repeated'">
+          <label class="col-sm-4 control-label">Choose days</label>
+          <div class="col-sm-8 btn-group btn-group-sm">
+            <label ng-model="task.daysAvailable[0]" btn-checkbox="btn-checkbox" class="btn btn-default">Monday</label>
+            <label ng-model="task.daysAvailable[1]" btn-checkbox="btn-checkbox" class="btn btn-default">Tuesday</label>
+            <label ng-model="task.daysAvailable[2]" btn-checkbox="btn-checkbox" class="btn btn-default">Wednesday</label>
+            <label ng-model="task.daysAvailable[3]" btn-checkbox="btn-checkbox" class="btn btn-default">Thursday</label>
+            <label ng-model="task.daysAvailable[4]" btn-checkbox="btn-checkbox" class="btn btn-default">Friday</label>
+            <label ng-model="task.daysAvailable[5]" btn-checkbox="btn-checkbox" class="btn btn-default">Saturday</label>
+            <label ng-model="task.daysAvailable[6]" btn-checkbox="btn-checkbox" class="btn btn-default">Sunday</label>
+          </div>
+        </div>
+        <div ng-show="task.availabilityType === 'once'">
+          <label class="col-sm-4 control-label">Choose Due date:</label>
+          <div class="col-sm-8">
+            <input type="date" ng-model="task.dueDate" class="form-control"/>
+          </div>
+        </div>
+        <label class="col-sm-4 control-label">Pomodoro:</label>
+        <div class="col-sm-8">
+          <input type="number" placeholder="temporary" ng-model="task.pomodoro" class="form-control"/>
+          <btn-group>
+            <button class="btn btn-danger">Pomodoro</button>
+            <button class="btn btn-info">Habit</button>
+          </btn-group>
+          <rating ng-model="task.pomodoro"></rating>
+        </div>
+        <label class="col-sm-4 control-label">Choose priority:</label>
+        <div class="col-sm-8">
+          <input type="number" placeholder="temporary" ng-model="task.priority" class="form-control"/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
