@@ -1,32 +1,31 @@
-div(ng-show="sidebarMode === 'initial'")
-	p Прошла неделя, не хотите посмотреть 
-		a.cursor-pointer сводку?
-	p Задача 
-		a.cursor-pointer Сжечь еретика 
-		| Пропущена. 
-
+div(ng-show="sidebarMode === 'news'")
+  p Прошла неделя, не хотите посмотреть 
+    a.cursor-pointer сводку?
+  p Задача 
+    a.cursor-pointer Сжечь еретика 
+    | Пропущена. 
 
 div(ng-show="sidebarMode === 'taskDetail'")
-	h5.sidebar-heading [[ currentTask.name ]]		
-		a.cursor-pointer(ng-click="edit(currentTask)").pull-right: i.fa.fa-edit
-	p(ng-repeat="tag in currentTask.tags") [[ tag ]]
-	p Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]
-	button.btn.button-info.btn-sm(type="button" ng-click="currentTask.addPomodoro()") Add Pomodoro Manually
-
-	//- a.cursor-pointer(ng-click="edit(currentTask)").pull-right: i.fa.fa-edit
-
-
-form.form-horizontal(ng-submit="saveChanges()" ng-show="sidebarMode === 'taskEdit'")
-	label.control-label.col-lg-4 Название:
-	.col-lg-8
-	//- 	input.form-control(ng-model="editedTask.name")
-	//- label.control-label.col-lg-4 #Повторять:
-	.col-lg-8
-		input.form-control(ng-model="editedTask.type")
-	label.control-label.col-lg-4 Теги:
-	.col-lg-8
-		tags-input(ng-model="editedTask.tags")
-			//- auto-complete(source="loadTags()")
+  h5.sidebar-heading [[ currentTask.name ]]   
+    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="edit(currentTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
+  p(ng-repeat="tag in currentTask.tags") [[ tag ]]
+  p Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]
+  //- button.btn.btn-info.btn-sm(type="button" ng-click="currentTask.addPomodoro()") Add Pomodoro Manually
+  i.text-danger.cursor-pointer.glyphicon.glyphicon-remove.pull-right(ng-click="delete(currentTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500")
 
 
-
+form.form-horizontal(ng-submit="save(currentTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'")
+  .col-lg-12(style="margin-bottom:20px")
+    i.text-danger.cursor-pointer.glyphicon.glyphicon-share-alt.pull-right(ng-click="discard()"  tooltip="Отменить" tooltip-placement="right" tooltip-popup-delay="500")
+  .form-group
+    label.control-label.col-lg-4 Название:
+    .col-lg-8
+      input.form-control(ng-model="currentTask.name")
+  //- label.control-label.col-lg-4 #Повторять:
+  //- .col-lg-8
+  //-   input.form-control(ng-model="currentTask.type")
+  //- label.control-label.col-lg-4 Теги:
+  //- .col-lg-8
+  //-   tags-input(ng-model="currentTask.tags")
+      //- auto-complete(source="loadTags()")
+  button.btn.btn-sm.btn-success.pull-right(type="submit") Сохранить

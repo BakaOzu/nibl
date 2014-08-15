@@ -16,7 +16,7 @@ class Task(models.Model):
     priority = models.IntegerField(default=1) #should have a check on min/max
     daysAvailable = models.BinaryField(null=True)
     next_date = models.DateField(null=True)
-    tags = models.ManyToManyField(Tag)
+    # tags = models.ManyToManyField(Tag)
     pomodoro_all = models.IntegerField(default=0)
     pomodoro_completed = models.IntegerField(default=0)
     

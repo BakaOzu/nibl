@@ -65,9 +65,6 @@ DATABASES = {
 
 REST_FRAMEWORK = {
     'PAGINATE_BY': 30,
-    # 'DEFAULT_MODEL_SERIALIZER_CLASS':
-    #     'rest_framework.serializers.HyperlinkedModelSerializer',
-
     'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.SessionAuthentication',),
     # 'DEFAULT_PERMISSION_CLASSES': ('tasks.permissions.IsOwnerOrReadOnly',)
 }

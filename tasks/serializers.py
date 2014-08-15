@@ -5,12 +5,13 @@ from models import Task, Tag
 
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.Field(source='owner.username')
-    tags = serializers.HyperlinkedRelatedField(view_name='tag-detail', many=True, lookup_field='name' )
+    # tags = serializers.HyperlinkedRelatedField(view_name='tag-detail', many=True, lookup_field='name' )
 
     class Meta:
         model = Task
+        fields = ('name',)
         fields = ('url', 'owner', 'name', 'availability_type',
-                  'pomodoro_all', 'pomodoro_completed', 'tags')
+                  'pomodoro_all', 'pomodoro_completed')
         read_only_fields = ('created',)
 
 

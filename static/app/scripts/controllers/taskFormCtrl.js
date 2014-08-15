@@ -42,13 +42,6 @@
         })();
       }
     };
-    $scope.addCounter = function() {
-      $scope.task.counters.push($scope.counter);
-      return $scope.counter = {};
-    };
-    $scope.deleteCounter = function() {
-      return $scope.task.counters.splice($scope.$index, 1);
-    };
     $scope.submitTask = function() {
       submitFunc($scope.task);
       return $modalInstance.close();

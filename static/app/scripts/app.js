@@ -10,6 +10,7 @@
     RestangularProvider.setRestangularFields({
       selfLink: 'url'
     });
+    RestangularProvider.setRequestSuffix('/');
     return RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
       if (operation === 'getList') {
         return data.results;
@@ -20,9 +21,6 @@
     return $routeProvider.when('/', {
       templateUrl: 'static/app/views/tasklist.html',
       controller: 'tasklistCtrl'
-    }).when('/events', {
-      templateUrl: 'static/app/views/events.html',
-      controller: 'eventListCtrl'
     }).otherwise({
       redirectTo: '/'
     });

@@ -3,6 +3,8 @@
 angular.module('niblApp').controller 'taskFormCtrl', ($scope, $filter, $modalInstance, taskService, projectService, initTask) ->
 	$scope.projects = projectService.getList().$object
 
+	
+
 
 	$scope.refreshForm = ->
 		$scope.counter = {}
@@ -17,12 +19,12 @@ angular.module('niblApp').controller 'taskFormCtrl', ($scope, $filter, $modalIns
 		else
 			$scope.task.daysAvailable = (false for x in [0..6])
 
-	$scope.addCounter = ->
-		$scope.task.counters.push $scope.counter
-		$scope.counter = {}
+	# $scope.addCounter = ->
+	# 	$scope.task.counters.push $scope.counter
+	# 	$scope.counter = {}
 
-	$scope.deleteCounter = ->
-		$scope.task.counters.splice $scope.$index, 1
+	# $scope.deleteCounter = ->
+	# 	$scope.task.counters.splice $scope.$index, 1
 
 	$scope.submitTask = ->				
 		submitFunc $scope.task

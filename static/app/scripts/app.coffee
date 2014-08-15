@@ -10,6 +10,7 @@ angular.module('niblApp', [
     'ui.bootstrap',
     'restangular',
     'ngTagsInput',
+    
   ])
   .config ($interpolateProvider) -> 
       $interpolateProvider.startSymbol '[['
@@ -18,6 +19,7 @@ angular.module('niblApp', [
     $http.defaults.headers.common['X-CSRFToken'] = $cookies['csrftoken'] 
   .config (RestangularProvider) ->
     RestangularProvider.setRestangularFields selfLink: 'url'
+    RestangularProvider.setRequestSuffix('/')
     RestangularProvider.addResponseInterceptor (data, operation, what, url, response, deferred) ->
       if operation is 'getList'
         return data.results
@@ -27,9 +29,6 @@ angular.module('niblApp', [
       .when '/',
         templateUrl: 'static/app/views/tasklist.html'
         controller: 'tasklistCtrl'
-      .when '/events',
-        templateUrl: 'static/app/views/events.html'
-        controller: 'eventListCtrl'
       # .when 'agenda',
       #   templateUrl: 'static/app/views/agenda.html'
       #   $controller: 'agendaCtrl'

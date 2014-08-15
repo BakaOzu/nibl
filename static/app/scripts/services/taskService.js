@@ -3,7 +3,6 @@
   'use strict';
   angular.module('niblApp').factory('taskService', function(Restangular) {
     Restangular.extendModel('tasks', function(model) {
-      console.log(model);
       model.addPomodoro = function() {
         model.pomodoro_completed += 1;
         return model.patch();

@@ -4,20 +4,6 @@
   angular.module('niblApp').controller('tasklistCtrl', function($scope, taskService, $modal, timer) {
     $scope.tasks = taskService.getList().$object;
     $scope.interval = 'Все время';
-    console.log($scope.sidebarMode);
-    $scope.openTaskForm = function(initTask) {
-      var modalInstance;
-      return modalInstance = $modal.open({
-        templateUrl: "static/app/views/partials/task-form.html",
-        size: "lg",
-        controller: 'taskFormCtrl',
-        resolve: {
-          initTask: function() {
-            return initTask;
-          }
-        }
-      });
-    };
     $scope.startPomodoro = function(task) {
       var modalInstance;
       timer.startCountdown(task);
@@ -35,8 +21,14 @@
     $scope.isCurrent = function(task) {
       return task === $scope.currentTask;
     };
-    return $scope.setInterval = function(interval) {
+    $scope.setInterval = function(interval) {
       return $scope.interval = interval;
+    };
+    return $scope.openTaskCreationForm = function() {
+      var beforeEditTask;
+      $scope.sidebarMode = 'taskCreation';
+      $scope.currentTask = {};
+      return beforeEditTask = {};
     };
   });
 
