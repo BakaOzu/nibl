@@ -29,13 +29,13 @@ class TaskViewSet(viewsets.ModelViewSet):
         obj.owner = self.request.user
 
 
-class TaskGetLast(APIView):
+# class TaskGetLast(APIView):
 
-    def get(self, request):
-        tasks = Task.objects.order_by('-pk')[0]
-        serializer = TaskSerializer(tasks)
-        return Response(serializer.data)
+#     def get(self, request):
+#         tasks = Task.objects.order_by('-pk')[0]
+#         serializer = TaskSerializer(tasks)
+#         return Response(serializer.data)
 
-    # def pre_save(self, obj):
-    #     obj.owner = self.request.user
+#     # def pre_save(self, obj):
+#     #     obj.owner = self.request.user
 

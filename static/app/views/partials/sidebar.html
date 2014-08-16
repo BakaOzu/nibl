@@ -1,10 +1,11 @@
 
+<p>[[ task ]]</p>
 <div ng-show="sidebarMode === 'news'">
   <p>Прошла неделя, не хотите посмотреть <a class="cursor-pointer">сводку?</a></p>
   <p>Задача <a class="cursor-pointer">Сжечь еретика </a>Пропущена. </p>
 </div>
 <div ng-show="sidebarMode === 'taskDetail'">
-  <h5 class="sidebar-heading">[[ currentTask.name ]]   <i ng-click="edit(currentTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500" class="text-primary cursor-pointer fa fa-edit pull-right"></i></h5>
+  <h5 class="sidebar-heading">[[ currentTask.name ]]   <i ng-click="openTaskEditForm(currentTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500" class="text-primary cursor-pointer fa fa-edit pull-right"></i></h5>
   <p ng-repeat="tag in currentTask.tags">[[ tag ]]</p>
   <p>Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]</p><i ng-click="delete(currentTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500" class="text-danger cursor-pointer glyphicon glyphicon-remove pull-right"></i>
 </div>

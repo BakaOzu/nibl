@@ -2,9 +2,32 @@
 (function() {
   'use strict';
   angular.module('niblApp').controller('tasklistCtrl', function($scope, taskService, $modal, timer) {
-    $scope.tasks = taskService.getList().$object;
+    $scope.tasks = taskService.all;
     $scope.interval = 'Все время';
-    $scope.startPomodoro = function(task) {
+    $scope.showDetails = function(task) {
+      console.log('here');
+      console.log($scope.sidebarMode, $scope.sidebarMode, $scope.currentTask);
+      if ($scope.sidebarMode === 'taskEdition' || $scope.sidebarMode === 'taskCreation' && $scope.currentTask) {
+        console.log('you have some unsaved changes');
+      }
+      $scope.sidebarMode = 'taskDetail';
+      return $scope.currentTask = task;
+    };
+    $scope.isCurrent = function(task) {
+      if ('url' in $scope.currentTask) {
+        return task.url === $scope.currentTask.url;
+      }
+    };
+    $scope.setInterval = function(interval) {
+      return $scope.interval = interval;
+    };
+    $scope.openTaskCreationForm = function() {
+      var beforeEditTask;
+      $scope.sidebarMode = 'taskCreation';
+      $scope.currentTask = {};
+      return beforeEditTask = {};
+    };
+    return $scope.startPomodoro = function(task) {
       var modalInstance;
       timer.startCountdown(task);
       return modalInstance = $modal.open({
@@ -12,23 +35,6 @@
         size: "lg",
         controller: 'pomoTimerCtrl'
       });
-    };
-    $scope.setCurrentTask = function(task) {
-      console.log(task);
-      $scope.sidebarMode = 'taskDetail';
-      return $scope.currentTask = task;
-    };
-    $scope.isCurrent = function(task) {
-      return task === $scope.currentTask;
-    };
-    $scope.setInterval = function(interval) {
-      return $scope.interval = interval;
-    };
-    return $scope.openTaskCreationForm = function() {
-      var beforeEditTask;
-      $scope.sidebarMode = 'taskCreation';
-      $scope.currentTask = {};
-      return beforeEditTask = {};
     };
   });
 

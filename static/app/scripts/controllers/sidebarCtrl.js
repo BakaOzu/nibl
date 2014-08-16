@@ -2,52 +2,39 @@
 (function() {
   'use strict';
   angular.module('niblApp').controller('sidebarCtrl', function($scope, taskService, Restangular) {
-    var beforeEditTask;
-    $scope.sidebarMode = 'news';
-    $scope.currentTask = {};
-    beforeEditTask = {};
-    $scope.startTaskCreation = function() {
-      $scope.sidebarMode = 'taskCreation';
-      $scope.currentTask = {};
-      return beforeEditTask = {};
+    var resetSidebar;
+    resetSidebar = function() {
+      $scope.sidebarMode = 'news';
+      return $scope.currentTask = {};
     };
-    $scope.edit = function(task) {
-      beforeEditTask = task;
-      $scope.currentTask = Restangular.copy(task);
+    $scope.openTaskCreationForm = function() {
+      $scope.currentTask = {};
+      return $scope.sidebarMode = 'taskCreation';
+    };
+    $scope.openTaskEditForm = function(task) {
+      $scope.currentTask = taskService.copy(task);
       return $scope.sidebarMode = 'taskEdition';
     };
     $scope.save = function(task) {
-      if ($scope.sidebarMode === 'taskEdition') {
-        task.put().then(function() {
-          var last;
-          last = Restangular.one('get_last').get().$object;
-          $scope.tasks = _.without($scope.tasks, task);
-          return $scope.tasks.push(last);
-        });
+      if ($scope.sidebarMode === 'taskCreation') {
+        taskService.create(task);
       } else {
-        taskService.post(task).then(function() {
-          return Restangular.one('get_last').get().then(function(data) {
-            $scope.tasks.push(data);
-            return console.log(data);
-          });
-        }, function(error) {
-          return console.log(error);
-        });
+        taskService.update(task);
       }
       return $scope.sidebarMode = 'taskDetail';
     };
     $scope.discard = function() {
-      $scope.sidebarMode = 'taskDetail';
-      return $scope.currentTask = beforeEditTask;
+      if ($scope.sidebarMode === 'taskCreation') {
+        return resetSidebar();
+      } else {
+        return $scope.sidebarMode = 'taskDetail';
+      }
     };
-    return $scope["delete"] = function(task) {
-      $scope.sidebarMode = 'news';
-      console.log(task);
-      task.remove().then(function() {});
-      return $scope.tasks = _.without($scope.tasks, task, function(error) {
-        return console.log(error);
-      });
+    $scope["delete"] = function(task) {
+      resetSidebar();
+      return taskService.remove(task);
     };
+    return resetSidebar();
   });
 
 }).call(this);

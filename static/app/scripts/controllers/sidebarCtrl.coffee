@@ -1,61 +1,37 @@
 'use strict'
 
 angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, Restangular) ->
-  $scope.sidebarMode = 'news'
-  $scope.currentTask = {}
-  beforeEditTask = {}
-
-
-  $scope.startTaskCreation = ->
-    $scope.sidebarMode = 'taskCreation'
+  resetSidebar = ->
+    $scope.sidebarMode = 'news'
     $scope.currentTask = {}
-    beforeEditTask = {}
 
-  $scope.edit = (task) ->
-    beforeEditTask = task
-    $scope.currentTask = Restangular.copy(task)
+  $scope.openTaskCreationForm = ->
+    $scope.currentTask = {}
+    $scope.sidebarMode = 'taskCreation'
+
+  $scope.openTaskEditForm = (task) ->
+    $scope.currentTask = taskService.copy task
     $scope.sidebarMode = 'taskEdition'
 
 
   $scope.save = (task) ->
-    if $scope.sidebarMode is 'taskEdition' 
-      task.put().then ->
-        last =  Restangular.one('get_last').get().$object # here it could fail, without problems
-        $scope.tasks = _.without $scope.tasks, task
-        $scope.tasks.push last
+    if $scope.sidebarMode is 'taskCreation'
+      taskService.create task
     else
-      # task.availability_type = 'always'
-      # task.pomodoro_all = 0
-      # task.pomodoro_completed = 0
-      # task.tags = []
-      taskService.post(task).then ->
-        Restangular.one('get_last').get().then (data) ->
-          $scope.tasks.push data
-          console.log  data
-      , (error) ->
-        console.log error 
-
+      taskService.update task
     $scope.sidebarMode = 'taskDetail'
 
   $scope.discard = ->
-    $scope.sidebarMode = 'taskDetail'
-    $scope.currentTask = beforeEditTask
+    if $scope.sidebarMode is 'taskCreation'
+      resetSidebar()
+    else
+      $scope.sidebarMode = 'taskDetail'
 
   $scope.delete = (task) ->
-    $scope.sidebarMode = 'news'
-    console.log task
-    task.remove().then ->
-    $scope.tasks = _.without $scope.tasks, task
-    , (error) ->
-      console.log error
+    resetSidebar()
+    taskService.remove task
 
- 
-
-
-
-
-
-
+  resetSidebar()
 
 
   # $scope.refreshForm = -> 

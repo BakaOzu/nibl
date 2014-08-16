@@ -2,6 +2,7 @@
 (function() {
   'use strict';
   angular.module('niblApp').factory('taskService', function(Restangular) {
+    var previousVersion, route, taskService, tasklist;
     Restangular.extendModel('tasks', function(model) {
       model.addPomodoro = function() {
         model.pomodoro_completed += 1;
@@ -9,7 +10,53 @@
       };
       return model;
     });
-    return Restangular.all('tasks');
+    route = Restangular.all('tasks');
+    tasklist = [];
+    previousVersion = {};
+    return taskService = {
+      all: route.getList().$object,
+      create: function(task) {
+        return route.post(task).then((function(_this) {
+          return function(data) {
+            return _this.all.push(data);
+          };
+        })(this));
+      },
+      remove: function(task) {
+        return task.remove().then((function(_this) {
+          return function() {
+            return _.pull(_this.all, task);
+          };
+        })(this));
+      },
+      update: function(newTaskVersion) {
+        var taskIndex;
+        taskIndex = _.findIndex(this.all, {
+          url: newTaskVersion.url
+        });
+        if (angular.equals(this.all[taskIndex], newTaskVersion)) {
+          return;
+        }
+        return newTaskVersion.put().then((function(_this) {
+          return function(refinedTask) {
+            return _this.all[taskIndex] = refinedTask;
+          };
+        })(this));
+      },
+      copy: function(task) {
+        return Restangular.copy(task);
+      },
+      _getLastandUpdateAll: function() {
+        return Restangular.one('get_last').get().then((function(_this) {
+          return function(data) {
+            return _this.all.push(data);
+          };
+        })(this));
+      },
+      _logErrorCallback: function(error) {
+        return console.log(error);
+      }
+    };
   });
 
 }).call(this);

@@ -34,3 +34,5 @@ angular.module('niblApp', [
       #   $controller: 'agendaCtrl'
       .otherwise
         redirectTo: '/'
+
+  # .contstant('toastr', toastr)

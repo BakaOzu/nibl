@@ -7,7 +7,7 @@
   <p>Сортировать по: <a href="#">Приоритету</a>, <a href="#">Срочности</a></p>
 </div>
 <div dropdown="dropdown" class="col-md-4 btn-group">
-  <button type="button" class="btn btn-sm btn-primary">[[ interval ]]	</button>
+  <button type="button" class="btn btn-sm btn-primary">[[ interval ]] </button>
   <button type="button" class="btn btn-sm btn-primary dropdown-toggle"><span class="caret"></span></button>
   <ul role="menu" class="dropdown-menu">
     <li><a ng-click="setInterval('Все время')" class="cursor-pointer">Все время</a></li>
@@ -17,21 +17,15 @@
   </ul>
 </div>
 <div class="col-md-4">
-  <button type="button" ng-click="startTaskCreation()" class="btn btn-md btn-success glyphicon glyphicon-plus pull-right"></button>
+  <button type="button" ng-click="openTaskCreationForm()" class="btn btn-md btn-success glyphicon glyphicon-plus pull-right"></button>
 </div>
 <hr/>
 <div class="col-md-8 list-group">
-  <li ng-repeat="task in tasks" ng-click="setCurrentTask(task)" ng-class="{current:isCurrent(task)}" class="list-group-item">
-    <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>
-    <div dropdown="dropdown" class="btn-group">
-      <button type="button" class="btn btn-xs dropdown-toggle"><span class="caret"></span></button>
-      <ul role="menu" class="dropdown-menu">
-        <li><a href="#" ng-click="openTaskForm(task)">Edit</a></li>
-        <li><a href="#" ng-click="task.remove()">Delete</a></li>
-      </ul>
-    </div>[[ task.name ]]  <a href="#" ng-click="startPomodoro(task)" class="pull-right"><span class="glyphicon glyphicon-play-circle"></span></a>
+  <li ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{current:isCurrent(task)}" class="list-group-item">
+    <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>[[ task.name ]]
   </li>
 </div>
 <div class="col-md-4 well">
-  <sidebar></sidebar>
+  <sidebar>
+  </sidebar>
 </div>

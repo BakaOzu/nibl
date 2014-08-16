@@ -7,7 +7,7 @@ div(ng-show="sidebarMode === 'news'")
 
 div(ng-show="sidebarMode === 'taskDetail'")
   h5.sidebar-heading [[ currentTask.name ]]   
-    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="edit(currentTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
+    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="openTaskEditForm(currentTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
   p(ng-repeat="tag in currentTask.tags") [[ tag ]]
   p Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]
   //- button.btn.btn-info.btn-sm(type="button" ng-click="currentTask.addPomodoro()") Add Pomodoro Manually
