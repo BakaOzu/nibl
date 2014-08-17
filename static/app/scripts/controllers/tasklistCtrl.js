@@ -2,30 +2,23 @@
 (function() {
   'use strict';
   angular.module('niblApp').controller('tasklistCtrl', function($scope, taskService, $modal, timer) {
-    $scope.tasks = taskService.all;
+    $scope.tasks = taskService.getList().$object;
     $scope.interval = 'Все время';
-    $scope.showDetails = function(task) {
-      console.log('here');
-      console.log($scope.sidebarMode, $scope.sidebarMode, $scope.currentTask);
-      if ($scope.sidebarMode === 'taskEdition' || $scope.sidebarMode === 'taskCreation' && $scope.currentTask) {
-        console.log('you have some unsaved changes');
+    $scope.isSelected = function(task) {
+      if ('url' in $scope.selectedTask) {
+        return task.url === $scope.selectedTask.url;
       }
-      $scope.sidebarMode = 'taskDetail';
-      return $scope.currentTask = task;
     };
-    $scope.isCurrent = function(task) {
-      if ('url' in $scope.currentTask) {
-        return task.url === $scope.currentTask.url;
+    $scope.showDetails = function(task) {
+      if (!$scope.isSelected(task)) {
+        $scope.alertIfUnchangedChanges();
+        console.log('here');
+        $scope.sidebarMode = 'taskDetail';
+        return $scope.selectedTask = task;
       }
     };
     $scope.setInterval = function(interval) {
       return $scope.interval = interval;
-    };
-    $scope.openTaskCreationForm = function() {
-      var beforeEditTask;
-      $scope.sidebarMode = 'taskCreation';
-      $scope.currentTask = {};
-      return beforeEditTask = {};
     };
     return $scope.startPomodoro = function(task) {
       var modalInstance;

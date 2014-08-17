@@ -1,3 +1,5 @@
+toaster-container
+  
 div(ng-show="sidebarMode === 'news'")
   p Прошла неделя, не хотите посмотреть 
     a.cursor-pointer сводку?
@@ -6,26 +8,26 @@ div(ng-show="sidebarMode === 'news'")
     | Пропущена. 
 
 div(ng-show="sidebarMode === 'taskDetail'")
-  h5.sidebar-heading [[ currentTask.name ]]   
-    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="openTaskEditForm(currentTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
-  p(ng-repeat="tag in currentTask.tags") [[ tag ]]
-  p Pomodoro: [[ currentTask.pomodoro_all ]] | [[ currentTask.pomodoro_completed ]]
-  //- button.btn.btn-info.btn-sm(type="button" ng-click="currentTask.addPomodoro()") Add Pomodoro Manually
-  i.text-danger.cursor-pointer.glyphicon.glyphicon-remove.pull-right(ng-click="delete(currentTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500")
+  h5.sidebar-heading [[ selectedTask.name ]]   
+    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="openTaskEditForm(selectedTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
+  p(ng-repeat="tag in selectedTask.tags") [[ tag ]]
+  p Pomodoro: [[ selectedTask.pomodoro_all ]] | [[ selectedTask.pomodoro_completed ]]
+  //- button.btn.btn-info.btn-sm(type="button" ng-click="selectedTask.addPomodoro()") Add Pomodoro Manually
+  i.text-danger.cursor-pointer.glyphicon.glyphicon-remove.pull-right(ng-click="delete(selectedTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500")
 
 
-form.form-horizontal(ng-submit="save(currentTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'")
+form.form-horizontal(ng-submit="save(selectedTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'")
   .col-lg-12(style="margin-bottom:20px")
     i.text-danger.cursor-pointer.glyphicon.glyphicon-share-alt.pull-right(ng-click="discard()"  tooltip="Отменить" tooltip-placement="right" tooltip-popup-delay="500")
   .form-group
     label.control-label.col-lg-4 Название:
     .col-lg-8
-      input.form-control(ng-model="currentTask.name")
+      input.form-control(ng-model="selectedTask.name")
   //- label.control-label.col-lg-4 #Повторять:
   //- .col-lg-8
-  //-   input.form-control(ng-model="currentTask.type")
+  //-   input.form-control(ng-model="selectedTask.type")
   //- label.control-label.col-lg-4 Теги:
   //- .col-lg-8
-  //-   tags-input(ng-model="currentTask.tags")
+  //-   tags-input(ng-model="selectedTask.tags")
       //- auto-complete(source="loadTags()")
   button.btn.btn-sm.btn-success.pull-right(type="submit") Сохранить

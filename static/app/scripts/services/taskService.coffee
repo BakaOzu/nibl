@@ -7,51 +7,32 @@ angular.module('niblApp').factory 'taskService', (Restangular) ->
       model.patch()
     return model
 
-  route = Restangular.all('tasks')
-  tasklist = []
-  previousVersion = {} # for revert Task Edit
+  Restangular.all('tasks')
 
-  taskService = 
-    all: route.getList().$object
-    create: (task) ->
-      route.post(task).then (data) =>
-        this.all.push data
-    remove: (task) ->
-      task.remove().then => # print errors, maybe
-        _.pull this.all, task
+  # route = Restangular.all('tasks')
+  # tasklist = []
+  # previousVersion = {} # for revert Task Edit
 
-    update: (newTaskVersion) ->
-      taskIndex = _.findIndex(this.all, url: newTaskVersion.url)
-      if angular.equals this.all[taskIndex], newTaskVersion then return
-      newTaskVersion.put().then (refinedTask) =>
-        this.all[taskIndex] = refinedTask
+  # taskService = 
+  #   all: route.getList().$object
+  #   create: (task) ->
+  #     route.post(task).then (data) =>
+  #       this.all.push data
+  #   remove: (task) ->
+  #     task.remove().then => # print errors, maybe
+  #       _.pull this.all, task
 
+  #   update: (newTaskVersion) ->
+  #     taskIndex = _.findIndex(this.all, url: newTaskVersion.url)
+  #     if angular.equals this.all[taskIndex], newTaskVersion then return
+  #     newTaskVersion.put().then (refinedTask) =>
+  #       this.all[taskIndex] = refinedTask
 
+  #   copy: (task) ->
+  #     Restangular.copy task
 
-
-
-
-
-      # for task in this.all
-        # if task.url is newTaskVersion.url
-        #   console.log task.url
-        #   console.log task
-        #   console.log newTaskVersion.url     
-        #   if angular.equals task , newTaskVersion then return
-        #   newTaskVersion.put().then (refineTask) =>
-        #     console.log newTaskVersion
-        #     console.log task
-        #     console.log refineTask
-        #     task = refineTask
-
-    copy: (task) ->
-      Restangular.copy task
-
-    _getLastandUpdateAll: ->
-      Restangular.one('get_last').get().then (data) =>
-          this.all.push data
-    _logErrorCallback: (error) ->
-      console.log error
+  #   _logErrorCallback: (error) ->
+  #     console.log error
 
 
 

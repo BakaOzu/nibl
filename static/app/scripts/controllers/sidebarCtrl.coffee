@@ -1,35 +1,78 @@
 'use strict'
 
-angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, Restangular) ->
+angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, toaster) ->
+
   resetSidebar = ->
     $scope.sidebarMode = 'news'
-    $scope.currentTask = {}
+    $scope.selectedTask = {}
+    $scope.originalTask = {} 
+    $scope.discardedData = {}
+
+
+  $scope.alertIfUnchangedChanges = ->
+    if ($scope.sidebarMode is 'taskCreation' and $scope.selectedTask isnt {}) or 
+    ($scope.sidebarMode is 'taskEdition' and
+    not angular.equals $scope.selectedTask, $scope.originalTask)
+      
+      $scope.discardedData =
+        mode: $scope.sidebarMode
+        task: $scope.selectedTask
+
+      if $scope.sidebarMode is 'taskCreation'
+        text = 'Создание задачи прервано, нажмите, чтобы вернуться.' # text should come from server with localization?
+      else text = 'Создание задачи прервано, нажмите, чтобы вернуться.'
+
+      toaster.pop 'warning', text, null, null, null, ->
+        $scope.selectedTask = $scope.discardedData.task
+        $scope.sidebarMode = $scope.discardedData.mode
+  
 
   $scope.openTaskCreationForm = ->
-    $scope.currentTask = {}
+    $scope.alertIfUnchangedChanges()
+    $scope.selectedTask = {}
     $scope.sidebarMode = 'taskCreation'
 
   $scope.openTaskEditForm = (task) ->
-    $scope.currentTask = taskService.copy task
+    $scope.alertIfUnchangedChanges()
+    $scope.originalTask = task
+    $scope.selectedTask = task.clone()
     $scope.sidebarMode = 'taskEdition'
 
 
   $scope.save = (task) ->
     if $scope.sidebarMode is 'taskCreation'
-      taskService.create task
-    else
-      taskService.update task
-    $scope.sidebarMode = 'taskDetail'
+      taskService.post(task).then (refinedTask) ->
+        $scope.tasks.push refinedTask
+        $scope.sidebarMode = 'taskDetail'
+      , (errors) ->
+        toaster.pop 'error', errors.statusText
+    else unless angular.equals $scope.selectedTask, $scope.originalTask
+      task.put().then (refinedTask) ->
+        taskIndex = _.findIndex($scope.tasks, url: task.url)
+        $scope.tasks[taskIndex] = refinedTask
+        $scope.sidebarMode = 'taskDetail'
+      , (errors) ->
+        toaster.pop 'error', errors.statusText
 
-  $scope.discard = ->
-    if $scope.sidebarMode is 'taskCreation'
-      resetSidebar()
-    else
-      $scope.sidebarMode = 'taskDetail'
+
 
   $scope.delete = (task) ->
+    task.remove().then -> # print errors, maybe
+      _.pull $scope.tasks, task
+      resetSidebar()
+      task = $scope.discardedTask
+      toaster.pop 'error', 'Task deleted'
+    , (errors) ->
+      toaster.pop 'error', errors.statusText
+
+
+
+  $scope.discard = ->
+  if $scope.sidebarMode is 'taskCreation'
     resetSidebar()
-    taskService.remove task
+  else
+    $scope.sidebarMode = 'taskDetail'
+
 
   resetSidebar()
 

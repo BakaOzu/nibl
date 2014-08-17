@@ -82,7 +82,7 @@ h5 {
   margin-top: 0;
 }
 
-.current {
+.selected {
  /* border: 1px solid black;
   margin-bottom: 0px;*/
   background-color: rgb(133, 182, 228)

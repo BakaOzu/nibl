@@ -1,9 +1,3 @@
-button.btn.btn-primary(disabled type="button" ng-click="openProjectForm()") Create Project
-button.btn.btn-primary(disabled type="button" ng-click="openWatcherForm()") Create Watcher
-button.btn.btn-primary(type="button" ng-click="openTaskForm()") Create Task
-hr
-//- form(style="padding-bottom:5px;")
-//-   input.form-control(ng-model="editedTask.name" placeholder='введите новую задачу')
 .col-md-4
   p Сортировать по: 
     a(href="#") Приоритету
@@ -16,17 +10,17 @@ hr
   button.btn.btn-sm.btn-primary.dropdown-toggle(type="button") 
     span.caret
   ul.dropdown-menu(role="menu")
-    li: a.cursor-pointer(ng-click="setInterval('Все время')") Все время
+    li: a.cursor-pointer( ng-click="setInterval('Все время')") Все время
     li: a.cursor-pointer( ng-click="setInterval('Неделя')") Неделя
     li: a.cursor-pointer( ng-click="setInterval('Три дня')") Три дня
     li: a.cursor-pointer( ng-click="setInterval('День')") День
 
 .col-md-4
-  button.btn.btn-md.btn-success.glyphicon.glyphicon-plus.pull-right(type="button" ng-click="openTaskCreationForm()")
+  button.btn.btn-lg.btn-success.glyphicon.glyphicon-plus.pull-right(type="button" ng-click="openTaskCreationForm()")
 
-hr
+.col-md-12(style="margin:20px;")
 .col-md-8.list-group
-    li.list-group-item(ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{current:isCurrent(task)}") 
+    li.list-group-item(ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{selected:isSelected(task)}") 
       input(type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)") 
       | [[ task.name ]]
 .col-md-4.well

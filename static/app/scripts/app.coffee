@@ -10,6 +10,7 @@ angular.module('niblApp', [
     'ui.bootstrap',
     'restangular',
     'ngTagsInput',
+    'toaster',
     
   ])
   .config ($interpolateProvider) -> 
@@ -35,4 +36,4 @@ angular.module('niblApp', [
       .otherwise
         redirectTo: '/'
 
-  # .contstant('toastr', toastr)
+  # .constant('toastr', toastr)

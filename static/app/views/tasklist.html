@@ -1,8 +1,4 @@
 
-<button disabled="disabled" type="button" ng-click="openProjectForm()" class="btn btn-primary">Create Project</button>
-<button disabled="disabled" type="button" ng-click="openWatcherForm()" class="btn btn-primary">Create Watcher</button>
-<button type="button" ng-click="openTaskForm()" class="btn btn-primary">Create Task</button>
-<hr/>
 <div class="col-md-4">
   <p>Сортировать по: <a href="#">Приоритету</a>, <a href="#">Срочности</a></p>
 </div>
@@ -17,11 +13,11 @@
   </ul>
 </div>
 <div class="col-md-4">
-  <button type="button" ng-click="openTaskCreationForm()" class="btn btn-md btn-success glyphicon glyphicon-plus pull-right"></button>
+  <button type="button" ng-click="openTaskCreationForm()" class="btn btn-lg btn-success glyphicon glyphicon-plus pull-right"></button>
 </div>
-<hr/>
+<div style="margin:20px;" class="col-md-12"></div>
 <div class="col-md-8 list-group">
-  <li ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{current:isCurrent(task)}" class="list-group-item">
+  <li ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{selected:isSelected(task)}" class="list-group-item">
     <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>[[ task.name ]]
   </li>
 </div>
