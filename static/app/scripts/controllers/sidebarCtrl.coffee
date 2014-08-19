@@ -2,19 +2,15 @@
 
 angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, toaster) ->
 
-  resetSidebar = ->
-    $scope.sidebarMode = 'news'
-    $scope.selectedTask = {}
-    $scope.originalTask = {} 
-    $scope.discardedData = {}
+  IsEqualToOrigin =  (task) ->
+    origin  = _.find($scope.tasks, url: task.url)
+    angular.equals $scope.selectedTask, origin
 
-
-  $scope.alertIfUnchangedChanges = ->
+  alertIfhasUnsavedChanges = ->
     if ($scope.sidebarMode is 'taskCreation' and $scope.selectedTask isnt {}) or 
-    ($scope.sidebarMode is 'taskEdition' and
-    not angular.equals $scope.selectedTask, $scope.originalTask)
+    ($scope.sidebarMode is 'taskEdition' and not IsEqualToOrigin $scope.selectedTask)
       
-      $scope.discardedData =
+      discardedData =
         mode: $scope.sidebarMode
         task: $scope.selectedTask
 
@@ -23,18 +19,29 @@ angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, toaste
       else text = 'Создание задачи прервано, нажмите, чтобы вернуться.'
 
       toaster.pop 'warning', text, null, null, null, ->
-        $scope.selectedTask = $scope.discardedData.task
-        $scope.sidebarMode = $scope.discardedData.mode
+        $scope.selectedTask = discardedData.task
+        $scope.sidebarMode = discardedData.mode
+        discardedData = {}
   
 
-  $scope.openTaskCreationForm = ->
-    $scope.alertIfUnchangedChanges()
+  $scope.openNewsView = ->
+    alertIfhasUnsavedChanges()
+    $scope.sidebarMode = 'news'
+    $scope.selectedTask = {}
+
+  $scope.openDetailsView = (task) ->  
+    unless $scope.isSelected(task)
+      alertIfhasUnsavedChanges()
+      $scope.sidebarMode = 'taskDetail'
+      $scope.selectedTask = task
+
+  $scope.openCreationView = ->
+    alertIfhasUnsavedChanges()
     $scope.selectedTask = {}
     $scope.sidebarMode = 'taskCreation'
 
-  $scope.openTaskEditForm = (task) ->
-    $scope.alertIfUnchangedChanges()
-    $scope.originalTask = task
+  $scope.openEditionView = (task) ->
+    alertIfhasUnsavedChanges()
     $scope.selectedTask = task.clone()
     $scope.sidebarMode = 'taskEdition'
 
@@ -42,11 +49,12 @@ angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, toaste
   $scope.save = (task) ->
     if $scope.sidebarMode is 'taskCreation'
       taskService.post(task).then (refinedTask) ->
+        $scope.selectedTask = refinedTask
         $scope.tasks.push refinedTask
         $scope.sidebarMode = 'taskDetail'
       , (errors) ->
         toaster.pop 'error', errors.statusText
-    else unless angular.equals $scope.selectedTask, $scope.originalTask
+    else unless IsEqualToOrigin task
       task.put().then (refinedTask) ->
         taskIndex = _.findIndex($scope.tasks, url: task.url)
         $scope.tasks[taskIndex] = refinedTask
@@ -54,27 +62,17 @@ angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, toaste
       , (errors) ->
         toaster.pop 'error', errors.statusText
 
-
-
   $scope.delete = (task) ->
     task.remove().then -> # print errors, maybe
       _.pull $scope.tasks, task
-      resetSidebar()
+      $scope.openNewsView()
       task = $scope.discardedTask
       toaster.pop 'error', 'Task deleted'
     , (errors) ->
       toaster.pop 'error', errors.statusText
 
 
-
-  $scope.discard = ->
-  if $scope.sidebarMode is 'taskCreation'
-    resetSidebar()
-  else
-    $scope.sidebarMode = 'taskDetail'
-
-
-  resetSidebar()
+  $scope.openNewsView()
 
 
   # $scope.refreshForm = -> 

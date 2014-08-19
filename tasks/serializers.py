@@ -3,15 +3,15 @@ from models import Task, Tag
 # from django.contrib.auth.models import User
 
 
-class TaskSerializer(serializers.HyperlinkedModelSerializer):
+class TaskSerializer(serializers.HyperlinkedModelSerializer): 
     owner = serializers.Field(source='owner.username')
-    # tags = serializers.HyperlinkedRelatedField(view_name='tag-detail', many=True, lookup_field='name' )
+    # tags = serializers.HyperlinkedRelatedField(view_name='tag-detail',many=True, lookup_field='name'
 
     class Meta:
         model = Task
         fields = ('name',)
         fields = ('url', 'owner', 'name', 'availability_type',
-                  'pomodoro_all', 'pomodoro_completed')
+                  'pomodoro_all', 'pomodoro_completed', 'priority')
         read_only_fields = ('created',)
 
 

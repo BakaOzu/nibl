@@ -9,4 +9,12 @@
     };
   });
 
+  angular.module('niblApp').directive('tagCloud', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'static/app/views/tagcloud.html',
+      controller: 'tagCloudCtrl'
+    };
+  });
+
 }).call(this);

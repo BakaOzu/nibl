@@ -1,28 +1,40 @@
-.col-md-4
+.col-md-6
   p Сортировать по: 
-    a(href="#") Приоритету
+    a.cursor-pointer(ng-click="predicate = '-priority'" ng-class="{selectedpredicate:isPredicate('-priority')}") Приоритету
     | , 
-    a(href="#") Срочности
+    //- a.cursor-pointer(ng-click="predicate = 'nothing'") Срочности
+    //- | , 
+    a.cursor-pointer(ng-click="predicate = 'name'" ng-class="{selectedpredicate:isPredicate('name')}") Имени
+  p Показывать за [[ interval ]]
+    a.caret.cursor-pointer(dropdown)
+    ul.dropdown-menu(role="menu")
+      li: a.cursor-pointer(ng-click="setInterval('Все время')") Все время
+      li: a.cursor-pointer(ng-click="setInterval('Неделя')") Неделя
+      li: a.cursor-pointer(ng-click="setInterval('Три дня')") Три дня
+      li: a.cursor-pointer(ng-click="setInterval('День')") День
 
 
-.col-md-4.btn-group(dropdown)
-  button.btn.btn-sm.btn-primary(type="button") [[ interval ]] 
-  button.btn.btn-sm.btn-primary.dropdown-toggle(type="button") 
+.col-md-2.btn-group(dropdown)
+  //- button.btn.btn-sm.btn-default(type="button")
+  button.btn.btn-sm.btn-default.dropdown-toggle(type="button")  [[ interval ]] 
     span.caret
   ul.dropdown-menu(role="menu")
-    li: a.cursor-pointer( ng-click="setInterval('Все время')") Все время
-    li: a.cursor-pointer( ng-click="setInterval('Неделя')") Неделя
-    li: a.cursor-pointer( ng-click="setInterval('Три дня')") Три дня
-    li: a.cursor-pointer( ng-click="setInterval('День')") День
+    li: a.cursor-pointer(ng-click="setInterval('Все время')") Все время
+    li: a.cursor-pointer(ng-click="setInterval('Неделя')") Неделя
+    li: a.cursor-pointer(ng-click="setInterval('Три дня')") Три дня
+    li: a.cursor-pointer(ng-click="setInterval('День')") День
 
 .col-md-4
-  button.btn.btn-lg.btn-success.glyphicon.glyphicon-plus.pull-right(type="button" ng-click="openTaskCreationForm()")
+  button.btn.btn-lg.btn-success.glyphicon.glyphicon-plus.pull-right(type="button" ng-click="openCreationView()")
 
 .col-md-12(style="margin:20px;")
-.col-md-8.list-group
-    li.list-group-item(ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{selected:isSelected(task)}") 
+ul.col-md-8.list-group
+    li.list-group-item(ng-repeat="task in tasks | orderBy:predicate" ng-click="openDetailsView(task)"
+                       ng-class="{selected:isSelected(task)}")
+      div(ng-class="{priority1: task.priority === 1, priority2: task.priority === 2, priority3: task.priority === 3}")
       input(type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)") 
       | [[ task.name ]]
-.col-md-4.well
+.col-md-4
   sidebar
-    //- (task="currentTask" mode="sidebarMode")
+  tag-cloud
+    //- (task="currentTask" mode="sidebarMode")10

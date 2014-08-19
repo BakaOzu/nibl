@@ -122,3 +122,42 @@ tags-input .tags {
   box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.0745098) inset;
 }
 
+.selectedpredicate {
+  font-weight: bolder;
+}
+
+/*padding: 10px 15px;*/
+
+.list-group-item div {
+  display: inline-block;
+  border-right: 1px solid #ddd;
+  background-color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 13px;
+  height: 100%;
+
+}
+
+div.priority1 {
+  background-color: black;
+}
+
+div.priority2 {
+  background-color: green;
+}
+
+.tag {
+  margin: 2px;
+  padding: 0 5px;
+  display: inline-block;
+  float: left;
+  font: 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  /*height: 26px;*/
+  line-height: 25px;
+  border: 1px solid #acacac;
+  border-radius: 3px;
+  background: -webkit-linear-gradient(top,#f0f9ff 0,#cbebff 47%,#a1dbff 100%);
+  background: linear-gradient(to bottom,#f0f9ff 0,#cbebff 47%,#a1dbff 100%);
+}

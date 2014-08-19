@@ -1,10 +1,18 @@
 
-<div class="col-md-4">
-  <p>Сортировать по: <a href="#">Приоритету</a>, <a href="#">Срочности</a></p>
+<div class="col-md-6">
+  <p>Сортировать по: <a ng-click="predicate = '-priority'" ng-class="{selectedpredicate:isPredicate('-priority')}" class="cursor-pointer">Приоритету</a>, <a ng-click="predicate = 'name'" ng-class="{selectedpredicate:isPredicate('name')}" class="cursor-pointer">Имени</a>
+  </p>
+  <p>Показывать за [[ interval ]]<a dropdown="dropdown" class="caret cursor-pointer"></a>
+    <ul role="menu" class="dropdown-menu">
+      <li><a ng-click="setInterval('Все время')" class="cursor-pointer">Все время</a></li>
+      <li><a ng-click="setInterval('Неделя')" class="cursor-pointer">Неделя</a></li>
+      <li><a ng-click="setInterval('Три дня')" class="cursor-pointer">Три дня</a></li>
+      <li><a ng-click="setInterval('День')" class="cursor-pointer">День</a></li>
+    </ul>
+  </p>
 </div>
-<div dropdown="dropdown" class="col-md-4 btn-group">
-  <button type="button" class="btn btn-sm btn-primary">[[ interval ]] </button>
-  <button type="button" class="btn btn-sm btn-primary dropdown-toggle"><span class="caret"></span></button>
+<div dropdown="dropdown" class="col-md-2 btn-group">
+  <button type="button" class="btn btn-sm btn-default dropdown-toggle"> [[ interval ]] <span class="caret"></span></button>
   <ul role="menu" class="dropdown-menu">
     <li><a ng-click="setInterval('Все время')" class="cursor-pointer">Все время</a></li>
     <li><a ng-click="setInterval('Неделя')" class="cursor-pointer">Неделя</a></li>
@@ -13,15 +21,17 @@
   </ul>
 </div>
 <div class="col-md-4">
-  <button type="button" ng-click="openTaskCreationForm()" class="btn btn-lg btn-success glyphicon glyphicon-plus pull-right"></button>
+  <button type="button" ng-click="openCreationView()" class="btn btn-lg btn-success glyphicon glyphicon-plus pull-right"></button>
 </div>
 <div style="margin:20px;" class="col-md-12"></div>
-<div class="col-md-8 list-group">
-  <li ng-repeat="task in tasks" ng-click="showDetails(task)" ng-class="{selected:isSelected(task)}" class="list-group-item">
+<ul class="col-md-8 list-group">
+  <li ng-repeat="task in tasks | orderBy:predicate" ng-click="openDetailsView(task)" ng-class="{selected:isSelected(task)}" class="list-group-item">
+    <div ng-class="{priority1: task.priority === 1, priority2: task.priority === 2, priority3: task.priority === 3}"></div>
     <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>[[ task.name ]]
   </li>
-</div>
-<div class="col-md-4 well">
-  <sidebar>
-  </sidebar>
+</ul>
+<div class="col-md-4">
+  <sidebar></sidebar>
+  <tag-cloud>
+  </tag-cloud>
 </div>

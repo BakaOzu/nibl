@@ -3,18 +3,14 @@
   'use strict';
   angular.module('niblApp').controller('tasklistCtrl', function($scope, taskService, $modal, timer) {
     $scope.tasks = taskService.getList().$object;
-    $scope.interval = 'Все время';
+    $scope.interval = 'За интервал';
+    $scope.predicate = '-priority';
+    $scope.isPredicate = function(predicate) {
+      return $scope.predicate === predicate;
+    };
     $scope.isSelected = function(task) {
       if ('url' in $scope.selectedTask) {
         return task.url === $scope.selectedTask.url;
-      }
-    };
-    $scope.showDetails = function(task) {
-      if (!$scope.isSelected(task)) {
-        $scope.alertIfUnchangedChanges();
-        console.log('here');
-        $scope.sidebarMode = 'taskDetail';
-        return $scope.selectedTask = task;
       }
     };
     $scope.setInterval = function(interval) {

@@ -1,28 +1,41 @@
 toaster-container
-  
-div(ng-show="sidebarMode === 'news'")
+.well(ng-show="sidebarMode === 'news'")
   p Прошла неделя, не хотите посмотреть 
     a.cursor-pointer сводку?
   p Задача 
     a.cursor-pointer Сжечь еретика 
     | Пропущена. 
 
-div(ng-show="sidebarMode === 'taskDetail'")
+.well(ng-show="sidebarMode === 'taskDetail'")
   h5.sidebar-heading [[ selectedTask.name ]]   
-    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="openTaskEditForm(selectedTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
+    i.text-primary.cursor-pointer.fa.fa-edit.pull-right(ng-click="openEditionView(selectedTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500")
   p(ng-repeat="tag in selectedTask.tags") [[ tag ]]
+  p Приоритет: [[ selectedTask.priority ]] 
   p Pomodoro: [[ selectedTask.pomodoro_all ]] | [[ selectedTask.pomodoro_completed ]]
-  //- button.btn.btn-info.btn-sm(type="button" ng-click="selectedTask.addPomodoro()") Add Pomodoro Manually
   i.text-danger.cursor-pointer.glyphicon.glyphicon-remove.pull-right(ng-click="delete(selectedTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500")
 
 
-form.form-horizontal(ng-submit="save(selectedTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'")
-  .col-lg-12(style="margin-bottom:20px")
-    i.text-danger.cursor-pointer.glyphicon.glyphicon-share-alt.pull-right(ng-click="discard()"  tooltip="Отменить" tooltip-placement="right" tooltip-popup-delay="500")
-  .form-group
-    label.control-label.col-lg-4 Название:
-    .col-lg-8
-      input.form-control(ng-model="selectedTask.name")
+form.form-horizontal.well(ng-submit="save(selectedTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'")
+  label.control-label.col-lg-4 Название:
+  .col-lg-8
+    input.form-control(type="text" ng-model="selectedTask.name")
+  label.control-label.col-lg-4 Приоритет:
+  .col-lg-8
+    input.form-control(type="number" min="0" max="5"  ng-model="selectedTask.priority")
+  button.btn.btn-sm.btn-success.pull-right(type="submit") Сохранить
+
+
+
+
+
+
+
+
+
+
+
+
+
   //- label.control-label.col-lg-4 #Повторять:
   //- .col-lg-8
   //-   input.form-control(ng-model="selectedTask.type")
@@ -30,4 +43,3 @@ form.form-horizontal(ng-submit="save(selectedTask)" ng-show="sidebarMode === 'ta
   //- .col-lg-8
   //-   tags-input(ng-model="selectedTask.tags")
       //- auto-complete(source="loadTags()")
-  button.btn.btn-sm.btn-success.pull-right(type="submit") Сохранить

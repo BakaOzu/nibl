@@ -2,17 +2,18 @@
 (function() {
   'use strict';
   angular.module('niblApp').controller('sidebarCtrl', function($scope, taskService, toaster) {
-    var resetSidebar;
-    resetSidebar = function() {
-      $scope.sidebarMode = 'news';
-      $scope.selectedTask = {};
-      $scope.originalTask = {};
-      return $scope.discardedData = {};
+    var IsEqualToOrigin, alertIfhasUnsavedChanges;
+    IsEqualToOrigin = function(task) {
+      var origin;
+      origin = _.find($scope.tasks, {
+        url: task.url
+      });
+      return angular.equals($scope.selectedTask, origin);
     };
-    $scope.alertIfUnchangedChanges = function() {
-      var text;
-      if (($scope.sidebarMode === 'taskCreation' && $scope.selectedTask !== {}) || ($scope.sidebarMode === 'taskEdition' && !angular.equals($scope.selectedTask, $scope.originalTask))) {
-        $scope.discardedData = {
+    alertIfhasUnsavedChanges = function() {
+      var discardedData, text;
+      if (($scope.sidebarMode === 'taskCreation' && $scope.selectedTask !== {}) || ($scope.sidebarMode === 'taskEdition' && !IsEqualToOrigin($scope.selectedTask))) {
+        discardedData = {
           mode: $scope.sidebarMode,
           task: $scope.selectedTask
         };
@@ -22,31 +23,44 @@
           text = 'Создание задачи прервано, нажмите, чтобы вернуться.';
         }
         return toaster.pop('warning', text, null, null, null, function() {
-          $scope.selectedTask = $scope.discardedData.task;
-          return $scope.sidebarMode = $scope.discardedData.mode;
+          $scope.selectedTask = discardedData.task;
+          $scope.sidebarMode = discardedData.mode;
+          return discardedData = {};
         });
       }
     };
-    $scope.openTaskCreationForm = function() {
-      $scope.alertIfUnchangedChanges();
+    $scope.openNewsView = function() {
+      alertIfhasUnsavedChanges();
+      $scope.sidebarMode = 'news';
+      return $scope.selectedTask = {};
+    };
+    $scope.openDetailsView = function(task) {
+      if (!$scope.isSelected(task)) {
+        alertIfhasUnsavedChanges();
+        $scope.sidebarMode = 'taskDetail';
+        return $scope.selectedTask = task;
+      }
+    };
+    $scope.openCreationView = function() {
+      alertIfhasUnsavedChanges();
       $scope.selectedTask = {};
       return $scope.sidebarMode = 'taskCreation';
     };
-    $scope.openTaskEditForm = function(task) {
-      $scope.alertIfUnchangedChanges();
-      $scope.originalTask = task;
+    $scope.openEditionView = function(task) {
+      alertIfhasUnsavedChanges();
       $scope.selectedTask = task.clone();
       return $scope.sidebarMode = 'taskEdition';
     };
     $scope.save = function(task) {
       if ($scope.sidebarMode === 'taskCreation') {
         return taskService.post(task).then(function(refinedTask) {
+          $scope.selectedTask = refinedTask;
           $scope.tasks.push(refinedTask);
           return $scope.sidebarMode = 'taskDetail';
         }, function(errors) {
           return toaster.pop('error', errors.statusText);
         });
-      } else if (!angular.equals($scope.selectedTask, $scope.originalTask)) {
+      } else if (!IsEqualToOrigin(task)) {
         return task.put().then(function(refinedTask) {
           var taskIndex;
           taskIndex = _.findIndex($scope.tasks, {
@@ -62,20 +76,14 @@
     $scope["delete"] = function(task) {
       return task.remove().then(function() {
         _.pull($scope.tasks, task);
-        resetSidebar();
+        $scope.openNewsView();
         task = $scope.discardedTask;
         return toaster.pop('error', 'Task deleted');
       }, function(errors) {
         return toaster.pop('error', errors.statusText);
       });
     };
-    $scope.discard = function() {};
-    if ($scope.sidebarMode === 'taskCreation') {
-      resetSidebar();
-    } else {
-      $scope.sidebarMode = 'taskDetail';
-    }
-    return resetSidebar();
+    return $scope.openNewsView();
   });
 
 }).call(this);
