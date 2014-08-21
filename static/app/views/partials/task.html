@@ -1,0 +1,5 @@
+
+<li ng-class="{selected:isSelected(task), tagged:hasHoveredTag(task)}" class="list-group-item">
+  <div ng-class="{priority1: task.priority === 1, priority2: task.priority === 2, priority3: task.priority === 3}"></div>
+  <input type="checkbox"/>[[ task.name ]]
+</li>

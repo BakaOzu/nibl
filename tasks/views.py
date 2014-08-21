@@ -15,10 +15,10 @@ class TagList(generics.ListCreateAPIView):
     serializer_class = TagSerializer
 
 
-class TagDetail(generics.RetrieveUpdateDestroyAPIView):
-    model = Tag
-    serializer_class = TagSerializer
-    lookup_field = 'name'
+# class TagDetail(generics.RetrieveUpdateDestroyAPIView):
+#     model = Tag
+#     serializer_class = TagSerializer
+#     lookup_field = 'name'
 
 
 class TaskViewSet(viewsets.ModelViewSet):

@@ -7,6 +7,11 @@
         model.pomodoro_completed += 1;
         return model.patch();
       };
+      model.isSame = function(task) {
+        if ('url' in task) {
+          return model.url === task.url;
+        }
+      };
       return model;
     });
     return Restangular.all('tasks');

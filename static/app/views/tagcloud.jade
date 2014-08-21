@@ -1,2 +1,4 @@
 .well
-  .tag(ng-repeat="tag in tags") [[ tag.name ]]
+  .tag.cursor-pointer(ng-repeat="tag in tags" 
+    ng-mouseenter="setHoveredTag(tag)" ng-mouseleave="resetHoveredTag()" 
+    ng-click="swapSelection(tag)" ng-class="{selectedtag:isSelectedTag(tag)}") [[ tag.name ]]

@@ -11,10 +11,6 @@ angular.module('niblApp').controller 'tasklistCtrl', ($scope, taskService, $moda
   $scope.isPredicate = (predicate) ->
     return $scope.predicate is predicate
 
-  $scope.isSelected = (task) ->
-    return task.url is $scope.selectedTask.url if  'url' of $scope.selectedTask
-
-
   $scope.setInterval = (interval) ->
     $scope.interval = interval
 
@@ -22,7 +18,7 @@ angular.module('niblApp').controller 'tasklistCtrl', ($scope, taskService, $moda
   $scope.startPomodoro = (task) ->
     timer.startCountdown(task)
     modalInstance = $modal.open
-      templateUrl: "static/app/views/partials/pomo-timer.html"
+      templateUrl: 'static/app/views/partials/pomo-timer.html'
       size: "lg"
       controller: 'pomoTimerCtrl'
 

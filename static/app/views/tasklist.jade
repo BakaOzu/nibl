@@ -29,12 +29,9 @@
 
 .col-md-12(style="margin:20px;")
 ul.col-md-8.list-group
-    li.list-group-item(ng-repeat="task in tasks | orderBy:predicate" ng-click="openDetailsView(task)"
-                       ng-class="{selected:isSelected(task)}")
-      div(ng-class="{priority1: task.priority === 1, priority2: task.priority === 2, priority3: task.priority === 3}")
-      input(type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)") 
-      | [[ task.name ]]
+    task(ng-repeat="task in tasks|hasTags:tags|orderBy:predicate" ng-click="openDetailsView(task)")
+
+
 .col-md-4
   sidebar
   tag-cloud
-    //- (task="currentTask" mode="sidebarMode")10

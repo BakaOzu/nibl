@@ -5,6 +5,8 @@ angular.module('niblApp').factory 'taskService', (Restangular) ->
     model.addPomodoro = ->
       model.pomodoro_completed +=1
       model.patch()
+    model.isSame = (task) ->
+      return model.url is task.url if  'url' of task # check if tasks both have same unique url
     return model
 
   Restangular.all('tasks')

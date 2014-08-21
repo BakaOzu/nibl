@@ -3,7 +3,6 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -11,7 +10,6 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -23,14 +21,12 @@ body {
   line-height: 40px;
   padding-bottom: 19px;
 }
-
 /* Custom page footer */
 .footer {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
-
 /* Customize container */
 @media (min-width: 768px) {
   .container {
@@ -40,7 +36,6 @@ body {
 .container-narrow > hr {
   margin: 30px 0;
 }
-
 /* Main marketing message and sign up button */
 .jumbotron {
   text-align: center;
@@ -50,7 +45,6 @@ body {
   font-size: 21px;
   padding: 14px 24px;
 }
-
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
@@ -58,106 +52,98 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
   .header,
   .marketing,
   .footer {
     padding-left: 0;
     padding-right: 0;
   }
-  /* Space out the masthead */
   .header {
     margin-bottom: 30px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
   }
 }
-
 h5 {
   margin-top: 0;
 }
-
 .selected {
- /* border: 1px solid black;
-  margin-bottom: 0px;*/
-  background-color: rgb(133, 182, 228)
+  background-color: #85b6e4;
 }
-
 .btn-xs {
   margin-right: 3px;
 }
-
 #timer-numbers {
-  color: rgb(216, 45, 45);
+  color: #d82d2d;
   font-size: 6em;
 }
-
 .cursor-pointer {
   cursor: pointer;
 }
-
 .form-control {
   margin: 5px 0px;
 }
-
-
 tags-input .tags {
   -moz-appearance: textfield;
   -webkit-appearance: textfield;
   height: 68px;
   margin: 4px 0px;
-  /*padding: 6px 12px;*/
   overflow: hidden;
   word-wrap: break-word;
   cursor: text;
-  color: #555555;
-  background-color: white;
+  color: #555;
+  background-color: #fff;
   border-radius: 4px;
   border: 1px solid #ccc;
-  box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.0745098) inset;
+  box-shadow: 0px 1px 1px 0 rgba(0,0,0,0.075) inset;
 }
-
 .selectedpredicate {
   font-weight: bolder;
 }
-
-/*padding: 10px 15px;*/
-
+.tagged {
+  background-color: #ff0;
+}
 .list-group-item div {
   display: inline-block;
   border-right: 1px solid #ddd;
-  background-color: white;
+  background-color: #fff;
   position: absolute;
   top: 0px;
   left: 0px;
   width: 13px;
   height: 100%;
-
 }
-
-div.priority1 {
-  background-color: black;
+.list-group-item div.priority1 {
+  background-color: #000;
 }
-
-div.priority2 {
-  background-color: green;
+.list-group-item div.priority2 {
+  background-color: #008000;
 }
-
+.list-group-item input {
+  padding-right: 10px;
+}
+tag-cloud .well {
+  overflow: hidden;
+}
+tag-cloud .selectedtag {
+  background: -webkit-linear-gradient(top, #008be4 0, #cbebff 47%, #a1dbff 100%);
+  background: linear-gradient(to bottom, #008be4 0, #cbebff 47%, #a1dbff 100%);
+}
 .tag {
+  -webkit-box-sizing: border-box;
   margin: 2px;
   padding: 0 5px;
   display: inline-block;
   float: left;
-  font: 14px "Helvetica Neue",Helvetica,Arial,sans-serif;
-  /*height: 26px;*/
+  width: 70px;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 26px;
   line-height: 25px;
   border: 1px solid #acacac;
   border-radius: 3px;
-  background: -webkit-linear-gradient(top,#f0f9ff 0,#cbebff 47%,#a1dbff 100%);
-  background: linear-gradient(to bottom,#f0f9ff 0,#cbebff 47%,#a1dbff 100%);
+  background: -webkit-linear-gradient(top, #f0f9ff 0, #cbebff 47%, #a1dbff 100%);
+  background: linear-gradient(to bottom, #f0f9ff 0, #cbebff 47%, #a1dbff 100%);
 }

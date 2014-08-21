@@ -8,11 +8,6 @@
     $scope.isPredicate = function(predicate) {
       return $scope.predicate === predicate;
     };
-    $scope.isSelected = function(task) {
-      if ('url' in $scope.selectedTask) {
-        return task.url === $scope.selectedTask.url;
-      }
-    };
     $scope.setInterval = function(interval) {
       return $scope.interval = interval;
     };
@@ -20,7 +15,7 @@
       var modalInstance;
       timer.startCountdown(task);
       return modalInstance = $modal.open({
-        templateUrl: "static/app/views/partials/pomo-timer.html",
+        templateUrl: 'static/app/views/partials/pomo-timer.html',
         size: "lg",
         controller: 'pomoTimerCtrl'
       });

@@ -11,6 +11,6 @@ router.register(r'tasks', views.TaskViewSet)
 urlpatterns = patterns('',
     url(r'^$', views.home, name='home'),
     url(r'^tags/$', views.TagList.as_view(), name='tag-list'),
-    url(r'tags/(?P<name>[a-zA-Z0-9]+)/$', views.TagDetail.as_view(), name='tag-detail'),  
+    # url(r'tags/(?P<name>[a-zA-Z0-9]+)/$', views.TagDetail.as_view(), name='tag-detail'),  
     url(r'^', include(router.urls)),
 )

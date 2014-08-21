@@ -35,7 +35,7 @@
       return $scope.selectedTask = {};
     };
     $scope.openDetailsView = function(task) {
-      if (!$scope.isSelected(task)) {
+      if (!task.isSame($scope.selectedTask)) {
         alertIfhasUnsavedChanges();
         $scope.sidebarMode = 'taskDetail';
         return $scope.selectedTask = task;

@@ -1,0 +1,5 @@
+li.list-group-item(ng-class="{selected:isSelected(task), tagged:hasHoveredTag(task)}")
+  div(ng-class="{priority1: task.priority === 1, priority2: task.priority === 2, priority3: task.priority === 3}")
+  input(type="checkbox")
+  | [[ task.name ]]
+  

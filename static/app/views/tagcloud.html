@@ -1,4 +1,4 @@
 
 <div class="well">
-  <div ng-repeat="tag in tags" class="tag">[[ tag.name ]]</div>
+  <div ng-repeat="tag in tags" ng-mouseenter="setHoveredTag(tag)" ng-mouseleave="resetHoveredTag()" ng-click="swapSelection(tag)" ng-class="{selectedtag:isSelectedTag(tag)}" class="tag cursor-pointer">[[ tag.name ]]</div>
 </div>

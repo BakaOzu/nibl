@@ -1,23 +1,28 @@
 
 <toaster-container></toaster-container>
-<div ng-show="sidebarMode === 'news'" class="well">
-  <p>Прошла неделя, не хотите посмотреть <a class="cursor-pointer">сводку?</a></p>
-  <p>Задача <a class="cursor-pointer">Сжечь еретика </a>Пропущена. </p>
-</div>
-<div ng-show="sidebarMode === 'taskDetail'" class="well">
-  <h5 class="sidebar-heading">[[ selectedTask.name ]]   <i ng-click="openEditionView(selectedTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500" class="text-primary cursor-pointer fa fa-edit pull-right"></i></h5>
-  <p ng-repeat="tag in selectedTask.tags">[[ tag ]]</p>
-  <p>Приоритет: [[ selectedTask.priority ]] </p>
-  <p>Pomodoro: [[ selectedTask.pomodoro_all ]] | [[ selectedTask.pomodoro_completed ]]</p><i ng-click="delete(selectedTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500" class="text-danger cursor-pointer glyphicon glyphicon-remove pull-right"></i>
-</div>
-<form ng-submit="save(selectedTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'" class="form-horizontal well">
-  <label class="control-label col-lg-4">Название:</label>
-  <div class="col-lg-8">
-    <input type="text" ng-model="selectedTask.name" class="form-control"/>
+<div class="well">
+  <div ng-show="sidebarMode === 'news'">
+    <p>Прошла неделя, не хотите посмотреть <a class="cursor-pointer">сводку?</a></p>
+    <p>Задача <a class="cursor-pointer">Сжечь еретика </a>Пропущена. </p>
   </div>
-  <label class="control-label col-lg-4">Приоритет:</label>
-  <div class="col-lg-8">
-    <input type="number" min="0" max="5" ng-model="selectedTask.priority" class="form-control"/>
+  <div ng-show="sidebarMode === 'taskDetail'">
+    <h5 class="sidebar-heading">[[ selectedTask.name ]]   <i ng-click="openEditionView(selectedTask)" tooltip="Редактировать" tooltip-placement="right" tooltip-popup-delay="500" class="text-primary cursor-pointer fa fa-edit pull-right"></i></h5>
+    <p>Приоритет: [[ selectedTask.priority ]] </p>
+    <p>Pomodoro: [[ selectedTask.pomodoro_all ]] | [[ selectedTask.pomodoro_completed ]]</p>
+    <div style="overflow:hidden">
+      <div ng-repeat="tag in selectedTask.tags" class="tag">[[ tag ]]</div>
+    </div><i ng-click="delete(selectedTask)" tooltip="Удалить" tooltip-placement="right" tooltip-popup-delay="500" class="text-danger cursor-pointer glyphicon glyphicon-remove pull-right"></i>
   </div>
-  <button type="submit" class="btn btn-sm btn-success pull-right">Сохранить</button>
-</form>
+  <form ng-submit="save(selectedTask)" ng-show="sidebarMode === 'taskEdition' || sidebarMode === 'taskCreation'" class="form-horizontal">
+    <label for="name" class="control-label col-lg-4">Название:</label>
+    <div class="col-lg-8">
+      <input id="name" type="text" ng-model="selectedTask.name" class="form-control"/>
+    </div>
+    <label for="priority" class="control-label col-lg-4">Приоритет:</label>
+    <div class="col-lg-8">
+      <input id="priority" type="number" min="0" max="5" ng-model="selectedTask.priority" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-sm btn-success pull-right">Сохранить</button>
+  </form>
+</div>
+<p>UNACCAPTABLE</p>

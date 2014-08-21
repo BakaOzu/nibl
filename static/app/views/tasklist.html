@@ -25,13 +25,9 @@
 </div>
 <div style="margin:20px;" class="col-md-12"></div>
 <ul class="col-md-8 list-group">
-  <li ng-repeat="task in tasks | orderBy:predicate" ng-click="openDetailsView(task)" ng-class="{selected:isSelected(task)}" class="list-group-item">
-    <div ng-class="{priority1: task.priority === 1, priority2: task.priority === 2, priority3: task.priority === 3}"></div>
-    <input type="checkbox" ng-model="task.completed" ng-change="switchComplete(task)"/>[[ task.name ]]
-  </li>
+  <task ng-repeat="task in tasks|hasTags:tags|orderBy:predicate" ng-click="openDetailsView(task)"></task>
 </ul>
 <div class="col-md-4">
   <sidebar></sidebar>
-  <tag-cloud>
-  </tag-cloud>
+  <tag-cloud></tag-cloud>
 </div>

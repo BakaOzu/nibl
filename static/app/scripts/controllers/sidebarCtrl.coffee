@@ -30,7 +30,7 @@ angular.module('niblApp').controller 'sidebarCtrl', ($scope, taskService, toaste
     $scope.selectedTask = {}
 
   $scope.openDetailsView = (task) ->  
-    unless $scope.isSelected(task)
+    unless task.isSame $scope.selectedTask
       alertIfhasUnsavedChanges()
       $scope.sidebarMode = 'taskDetail'
       $scope.selectedTask = task

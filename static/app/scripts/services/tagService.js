@@ -2,6 +2,10 @@
 (function() {
   'use strict';
   angular.module('niblApp').factory('tagService', function(Restangular) {
+    Restangular.extendModel('tags', function(model) {
+      model.selected = false;
+      return model;
+    });
     return Restangular.all('tags');
   });
 
